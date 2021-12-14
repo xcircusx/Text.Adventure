@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "188575906459",
+    "project_id": "text-adventure-b9681",
+    "storage_bucket": "text-adventure-b9681.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188575906459:android:74d160ef974e0ca851e43e",
+        "android_client_info": {
+          "package_name": "Text.Adventure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188575906459-dvqjcrapcegqqqh85379dbgrakmnuh96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFI94s2dhDIoGnG_RfFwvnJ5TxiY1y4Uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188575906459-dvqjcrapcegqqqh85379dbgrakmnuh96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188575906459:android:e4d9668f431d5cdd51e43e",
+        "android_client_info": {
+          "package_name": "com.Text.Adventure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188575906459-dvqjcrapcegqqqh85379dbgrakmnuh96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFI94s2dhDIoGnG_RfFwvnJ5TxiY1y4Uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188575906459-dvqjcrapcegqqqh85379dbgrakmnuh96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
