@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Text.Adventure</string>
+    <string name="starten">STARTEN</string>
 </resources>
