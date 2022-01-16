@@ -13,10 +13,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
+
 
 
 public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
@@ -29,9 +29,9 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SignInButton signInButton;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
-
         String default_web_client_id = "1:188575906459:android:e4d9668f431d5cdd51e43e";
 
         // Configure Google Sign In
@@ -43,6 +43,10 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
+        signInButton = (SignInButton) findViewById(R.id.button_login);
+        signInButton.setOnClickListener(this);
+
     }
 
 
@@ -53,17 +57,10 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
 
     }
 
-    /*@Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-    }*/
-
     @Override
     public void onClick(View v) {
-//        findViewById(R.id.button_login).setOnClickListener(this);
+        System.out.println("Penis der Bermel");
+        findViewById(R.id.button_login).setOnClickListener(this);
         switch (v.getId()) {
             case R.id.button_login:
                 signIn();
