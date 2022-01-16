@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Studio Programme/Text Adventure/Text.Adventuree/app/src/main/res/layout/four_decisions_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android Studio Programme/Text Adventure/Text.Adventuree/app/src/main/res/layout/home_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android Studio Programme/Text Adventure/Text.Adventuree/app/src/main/res/layout/text_screen.xml" value="0.30085470085470084" />
+        <entry key="..\:/Android Studio Programme/Text Adventure/Text.Adventuree/app/src/main/res/layout/two_decisions_screen.xml" value="0.30085470085470084" />
         <entry key="..\:/STUDIUM/Webtechnologien/Text.Adventure2/app/src/main/res/drawable/rounded_corners.xml" value="0.4203125" />
         <entry key="..\:/STUDIUM/Webtechnologien/Text.Adventure2/app/src/main/res/drawable/rounded_corners_button.xml" value="0.246875" />
         <entry key="..\:/STUDIUM/Webtechnologien/Text.Adventure2/app/src/main/res/drawable/rounded_corners_text.xml" value="0.246875" />
