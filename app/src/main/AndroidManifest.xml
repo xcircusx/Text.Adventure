@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TextAdventure">
         <activity
+            android:name=".NPCScreen"
+            android:exported="false" />
+        <activity
+            android:name=".MainScreen"
+            android:exported="false" />
+        <activity
             android:name=".FourDecisions"
             android:exported="false" />
         <activity
