@@ -10,22 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TextAdventure">
         <activity
-            android:name=".NPCScreen"
+            android:name=".GameActivities.NPCScreen"
             android:exported="false" />
         <activity
-            android:name=".MainScreen"
+            android:name=".HomeActivities.MainScreen"
             android:exported="false" />
         <activity
-            android:name=".FourDecisions"
+            android:name=".GameActivities.FourDecisions"
             android:exported="false" />
         <activity
-            android:name=".TwoDecisions"
+            android:name=".GameActivities.TwoDecisions"
             android:exported="false" />
         <activity
-            android:name=".TextScreen"
+            android:name=".GameActivities.TextScreen"
             android:exported="false" />
         <activity
-            android:name=".HomeScreen"
+            android:name=".HomeActivities.HomeScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
