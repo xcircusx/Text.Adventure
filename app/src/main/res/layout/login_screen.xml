@@ -79,6 +79,7 @@
         android:elegantTextHeight="false"
 
         android:fontFamily="sans-serif"
+        android:onClick="goHomeScreen"
         android:text="STARTEN"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="@color/white"

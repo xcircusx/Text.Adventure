@@ -159,4 +159,10 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+    public void goHomeScreen(View view){
+
+        Intent homeScreen = new Intent( this, HomeScreen.class);
+        startActivity(homeScreen);
+
+    }
 }
