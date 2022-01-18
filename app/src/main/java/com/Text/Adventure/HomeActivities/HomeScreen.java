@@ -54,10 +54,10 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        signInButton = (SignInButton) findViewById(R.id.button_login);
+        signInButton = findViewById(R.id.button_login);
         signInButton.setOnClickListener(this);
 
-        signOutButton = (Button) findViewById(R.id.button_logout);
+        signOutButton = findViewById(R.id.button_logout);
         signOutButton.setOnClickListener(this);
 
         signOutButton.setVisibility(View.INVISIBLE);
@@ -119,7 +119,7 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
         if (result.isSuccess()) {
             GoogleActiveAccount.setAccount(result.getSignInAccount());
             System.out.println(GoogleActiveAccount.getAccount().getEmail());
-            //firebaseAuthWithGoogle(GoogleActiveAccount.getAccount());
+            firebaseAuthWithGoogle(GoogleActiveAccount.getAccount());
         }
         else {
             System.out.println("Login Failed");
