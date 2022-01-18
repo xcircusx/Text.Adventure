@@ -8,7 +8,23 @@
     android:onClick="goTextScreen"
     android:textAlignment="center"
     android:textDirection="locale"
-    tools:context=".HomeScreen">
+    tools:context=".HomeActivities.HomeScreen">
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#000AF9"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="on_log_in"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.837"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_play"
@@ -29,22 +45,6 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible" />
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/button_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="64dp"
-        android:backgroundTint="#000AF9"
-        android:fontFamily="sans-serif-medium"
-        android:text="Login"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </com.google.android.gms.common.SignInButton>
 
     <TextView
         android:id="@+id/textView_dead"

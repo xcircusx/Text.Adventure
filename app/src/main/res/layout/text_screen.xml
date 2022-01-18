@@ -7,7 +7,7 @@
     android:background="#494848"
     android:textAlignment="center"
     android:textDirection="locale"
-    tools:context=".HomeScreen">
+    tools:context=".HomeActivities.HomeScreen">
 
     <Button
         android:id="@+id/button_play"
