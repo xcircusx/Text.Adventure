@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.Text.Adventure.Firebase.FirebaseActiveAccount;
 import com.Text.Adventure.GameActivities.TextScreen;
 import com.Text.Adventure.Google.GoogleActiveAccount;
 import com.Text.Adventure.R;
@@ -25,7 +26,9 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 
@@ -35,7 +38,7 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
     private static final int RC_SIGN_IN = 9001;
 
     private GoogleSignInClient mGoogleSignInClient;
-    private FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth mAuth;
 
     private SignInButton signInButton;
     private Button signOutButton;
@@ -47,10 +50,10 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("370327462233-jp7d8gvqdpohpfll3goldf3lped35bqe.apps.googleusercontent.com")
+                .requestIdToken("188575906459-dvqjcrapcegqqqh85379dbgrakmnuh96.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
@@ -85,6 +88,8 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         GoogleActiveAccount.setAccount(account);
+        //FirebaseUser currentUser = mAuth.getCurrentUser();
+        //updateUI();
     }
 
     public void goTextScreen(View view){
@@ -149,7 +154,7 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        mFirebaseAuth.signInWithCredential(credential)
+        mAuth.signInWithCredential(credential)
                 .addOnSuccessListener(this, authResult -> {
                     startActivity(new Intent(HomeScreen.this, HomeScreen.class));
                     finish();
