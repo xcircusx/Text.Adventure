@@ -43,8 +43,6 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
     private SignInButton signInButton;
     private Button signOutButton;
 
-    GoogleActiveAccount googleActiveAccount;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,13 +86,11 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         GoogleActiveAccount.setAccount(account);
-        //FirebaseUser currentUser = mAuth.getCurrentUser();
-        //updateUI();
     }
 
-    public void goTextScreen(View view){
+    public void goMainScreen(View view){
 
-        Intent textScreen = new Intent( this, TextScreen.class);
+        Intent textScreen = new Intent( this, MainScreen.class);
         startActivity(textScreen);
 
     }
@@ -130,7 +126,6 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
             updateUI();
         }
         else {
-            System.out.println("Login Failed");
             Toast.makeText(this, "Login Fehlgeschlagen", Toast.LENGTH_SHORT).show();
         }
     }
@@ -160,7 +155,8 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
                     finish();
                 })
                 .addOnFailureListener(this, e -> Toast.makeText(HomeScreen.this, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show());
+                        Toast.LENGTH_SHORT).show()
+                );
     }
 
     @Override

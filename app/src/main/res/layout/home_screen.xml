@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#494848"
-    android:onClick="goTextScreen"
     android:textAlignment="center"
     android:textDirection="locale"
     tools:context=".HomeActivities.HomeScreen">
@@ -35,7 +34,7 @@
         android:background="@drawable/rounded_corners_button"
         android:elegantTextHeight="false"
         android:fontFamily="sans-serif"
-        android:onClick="goTextScreen"
+        android:onClick="goMainScreen"
         android:text="STARTEN"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="@color/white"

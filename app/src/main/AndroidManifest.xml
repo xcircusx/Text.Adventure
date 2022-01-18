@@ -22,9 +22,6 @@
             android:name=".GameActivities.TwoDecisions"
             android:exported="false" />
         <activity
-            android:name=".GameActivities.TextScreen"
-            android:exported="false" />
-        <activity
             android:name=".HomeActivities.HomeScreen"
             android:exported="true">
             <intent-filter>
