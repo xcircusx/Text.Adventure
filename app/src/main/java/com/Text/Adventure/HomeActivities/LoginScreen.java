@@ -82,13 +82,12 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         GoogleActiveAccount.setAccount(account);
+        updateUI();
     }
 
     public void goMainScreen(View view){
-
         Intent textScreen = new Intent( this, MainScreen.class);
         startActivity(textScreen);
-
     }
 
     @Override
