@@ -22,6 +22,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
@@ -120,6 +122,7 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
             GoogleActiveAccount.setAccount(result.getSignInAccount());
             System.out.println(GoogleActiveAccount.getAccount().getEmail());
             firebaseAuthWithGoogle(GoogleActiveAccount.getAccount());
+            updateUI();
         }
         else {
             System.out.println("Login Failed");
@@ -135,13 +138,13 @@ public class HomeScreen extends AppCompatActivity implements GoogleApiClient.OnC
     }
 
     private void signOut() {
-        //Auth.GoogleSignInApi.signOut(mGoogleSignInClient).setResultCallback(new ResultCallback<Status>() {
-        //    @Override
-        //    public void onResult(@NonNull Status status) {
-        //        //ausgeloggt
-        //    }
-        //});
-        updateUI();
+        mGoogleSignInClient.signOut().addOnCompleteListener(this, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                GoogleActiveAccount.setAccount(null);
+                updateUI();
+            }
+        });
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
