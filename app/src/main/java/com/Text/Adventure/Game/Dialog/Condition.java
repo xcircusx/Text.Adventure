@@ -34,12 +34,8 @@ public class Condition {
                     return true;
                 }
                 return false;
-
-
             default:
                 return true;
-
         }
-
     }
 }

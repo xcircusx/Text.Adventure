@@ -7,11 +7,11 @@ public class Option {
     private String text;
     private ArrayList<Trigger> trigger;
     private ArrayList<Condition> conditions;
-    private int conditionsTrue;
-    private int conditionsFalse;
+    private String conditionsTrue;
+    private String conditionsFalse;
 
 
-    public Option(String text, ArrayList<Trigger> trigger, ArrayList<Condition> conditions, int conditionsTrue, int conditionsFalse) {
+    public Option(String text, ArrayList<Trigger> trigger, ArrayList<Condition> conditions, String conditionsTrue, String conditionsFalse) {
         this.text = text;
         this.trigger = trigger;
         this.conditions = conditions;
@@ -43,19 +43,19 @@ public class Option {
         this.conditions = conditions;
     }
 
-    public int getConditionsTrue() {
+    public String getConditionsTrue() {
         return conditionsTrue;
     }
 
-    public void setConditionsTrue(int conditionsTrue) {
+    public void setConditionsTrue(String conditionsTrue) {
         this.conditionsTrue = conditionsTrue;
     }
 
-    public int getConditionsFalse() {
+    public String getConditionsFalse() {
         return conditionsFalse;
     }
 
-    public void setConditionsFalse(int conditionsFalse) {
+    public void setConditionsFalse(String conditionsFalse) {
         this.conditionsFalse = conditionsFalse;
     }
 }

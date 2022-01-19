@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.Text.Adventure.GameActivities.NPCScreen;
+import com.Text.Adventure.Game.LoadNPC;
 import com.Text.Adventure.Google.GoogleActiveAccount;
 import com.Text.Adventure.R;
 import com.google.android.gms.auth.api.Auth;
@@ -42,6 +43,8 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println(LoadNPC.getNpc("Knecht Ruprecht").getName());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_screen);
 
