@@ -17,13 +17,10 @@ public class HomeScreen extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
-
     }
-    public void goMainScreen(View view){
 
+    public void goMainScreen(View view){
         Intent mainScreen = new Intent( this, MainScreen.class);
         startActivity(mainScreen);
-
     }
-
 }

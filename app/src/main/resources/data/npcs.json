@@ -1,0 +1,132 @@
+{
+  "Knecht Ruprecht": {
+    "states": {
+      "0": {
+        "npc_text": "Wie kann ich Helfen?",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Kannst du mir mit Leben helfen?",
+            "conditions": [
+              "hp_below::50"
+            ],
+            "trigger": [],
+            "conditionsTrue": {
+              "next": 1
+            },
+            "conditionsFalse": {
+              "next": 2
+            }
+          },
+          "1": {
+            "text": "Nein danke mit ist nicht mehr zu Helfen.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": {
+              "next": 1
+            },
+            "conditionsFalse": {}
+          },
+          "2": {
+            "text": "Nach Informationen Fragen",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": {
+              "next": 3
+            },
+            "conditionsFalse": {}
+          }
+        }
+      },
+      "1": {
+        "npc_text": "Hier ist ein Apfel für dich!",
+        "trigger": [
+          "heal_player::50"
+        ],
+        "options": {
+          "0": {
+            "text": "Danke!",
+            "conditions": [],
+            "conditionsTrue": {
+              "next": 3
+            },
+            "conditionsFalse": {}
+          }
+        }
+      },
+      "2": {
+        "npc_text": "Du gieriger Hurensohn!",
+        "conditions": [],
+        "trigger": [
+          "damage_player::20"
+        ],
+        "options": {
+        },
+        "conditionsTrue": "",
+        "conditionsFalse": "",
+        "next": 1
+      },
+      "3": {
+        "npc_text": "",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Wo kommst du denn her?",
+            "conditionsTrue": {
+              "next": 1
+            },
+            "trigger": [],
+            "reward": [],
+            "conditions": []
+          },
+          "2": {
+            "text": "Was machst du Hier?",
+            "conditionsTrue": {
+              "next": 1
+            },
+            "trigger": [],
+            "reward": [],
+            "conditions": []
+          }
+        }
+      },
+      "4": {
+        "npc_text": "Ich komme aus Koblenz",
+        "conditions": [],
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Sehr interressant!",
+            "conditionsTrue": {
+              "next": 3
+            },
+            "trigger": [],
+            "reward": [],
+            "conditions": []
+          }
+        }
+      }
+    }
+  },
+  "Beispiel": {
+    "states": {
+      "0": {
+        "npc_text": "",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": {
+              "next": 0
+            },
+            "conditionsFalse": {
+              "next": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}
