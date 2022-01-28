@@ -134,7 +134,7 @@ public class LoadMap {
             case 1:
                 if (!northAvailable()) {
                     returnArray[0] = "False";
-                    returnArray[1] = "Kein raum.";
+                    returnArray[1] = "Kein Raum.";
                     return returnArray;
                 }
                 newPosition = new int[]{currentPosition[0], currentPosition[1] - 2};
@@ -145,7 +145,7 @@ public class LoadMap {
             case 2:
                 if (!eastAvailable()) {
                     returnArray[0] = "False";
-                    returnArray[1] = "Kein raum.";
+                    returnArray[1] = "Kein Raum.";
                     return returnArray;
                 }
                 newPosition = new int[]{currentPosition[0] + 2, currentPosition[1]};
@@ -156,7 +156,7 @@ public class LoadMap {
             case 3:
                 if (!southAvailable()) {
                     returnArray[0] = "False";
-                    returnArray[1] = "Kein raum.";
+                    returnArray[1] = "Kein Raum.";
                     return returnArray;
                 }
                 newPosition = new int[]{currentPosition[0], currentPosition[1] + 2};
@@ -167,7 +167,7 @@ public class LoadMap {
             case 4:
                 if (!westAvailable()) {
                     returnArray[0] = "False";
-                    returnArray[1] = "Kein raum.";
+                    returnArray[1] = "Kein Raum.";
                     return returnArray;
                 }
                 newPosition = new int[]{currentPosition[0] - 2, currentPosition[1]};
@@ -177,7 +177,7 @@ public class LoadMap {
                 break;
             default:
                 returnArray[0] = "False";
-                returnArray[1] = "Kein raum.";
+                returnArray[1] = "Kein Raum.";
                 return returnArray;
         }
         for (Condition condition : getRoom(newPosition[0], newPosition[1]).getConditions()) {
@@ -197,6 +197,32 @@ public class LoadMap {
         returnArray[0] = "True";
         returnArray[1] = "";
         return returnArray;
+    }
+
+    public static Room getNextRoomDirection(int dir) {
+        switch (dir) {
+            case 1:
+                if (!northAvailable()){
+                    return null;
+                }
+                return loadRoomFromJson(currentPosition[0], currentPosition[1]-2);
+            case 2:
+                if (!eastAvailable()){
+                    return null;
+                }
+                return loadRoomFromJson(currentPosition[0]+2, currentPosition[1]);
+            case 3:
+                if (!southAvailable()){
+                    return null;
+                }
+                return loadRoomFromJson(currentPosition[0], currentPosition[1]+2);
+            case 4:
+                if (!westAvailable()){
+                    return null;
+                }
+                return loadRoomFromJson(currentPosition[0]-2, currentPosition[1]);
+        }
+        return null;
     }
 
     public static boolean hasVisitedRoom(int id) {
