@@ -14,6 +14,12 @@
         android:layout_marginTop="60dp"
         android:background="@drawable/rounded_corners_npc"
         android:outlineProvider="none"
+        android:paddingStart="20px"
+        android:paddingLeft="20px"
+        android:paddingTop="20px"
+        android:paddingEnd="20px"
+        android:paddingRight="20px"
+        android:paddingBottom="20px"
 
         android:text="Text von einem NPC"
         android:textColor="#FFFFFF"

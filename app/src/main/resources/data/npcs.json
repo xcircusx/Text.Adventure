@@ -10,8 +10,7 @@
             "conditions": [
               "hp_below::50"
             ],
-            "trigger": [
-            ],
+            "trigger": [],
             "conditionsTrue": "1",
             "conditionsFalse": "2"
           },
@@ -29,82 +28,83 @@
             "conditionsTrue": "1",
             "conditionsFalse": "2"
           }
-        },
-        "1": {
-          "npc_text": "Hier ist ein Apfel für dich!",
-          "trigger": [
-            "heal_player::50"
-          ],
-          "options": {
-            "0": {
-              "text": "Danke!",
-              "conditions": [],
-              "trigger": [],
-              "conditionsTrue": "1",
-              "conditionsFalse": "2"
-            }
+        }
+      },
+      "1": {
+        "npc_text": "Hier ist ein Apfel für dich!",
+        "trigger": [
+          "heal_player::50"
+        ],
+        "options": {
+          "0": {
+            "text": "Danke!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
+          }
+        }
+      },
+      "2": {
+        "npc_text": "Du gieriger Hurensohn!",
+        "conditions": [],
+        "trigger": [
+          "damage_player::20"
+        ],
+        "options": {},
+        "conditionsTrue": "",
+        "conditionsFalse": "",
+        "next": 1
+      },
+      "3": {
+        "npc_text": "",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Wo kommst du denn her?",
+            "trigger": [],
+            "conditions": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
           },
           "2": {
-            "npc_text": "Du gieriger Hurensohn!",
-            "conditions": [],
-            "trigger": [
-              "damage_player::20"
-            ],
-            "options": {
-            },
-            "conditionsTrue": "",
-            "conditionsFalse": "",
-            "next": 1
-          },
-          "3": {
-            "npc_text": "",
+            "text": "Was machst du Hier?",
             "trigger": [],
-            "options": {
-              "1": {
-                "text": "Wo kommst du denn her?",
-                "trigger": [],
-                "conditionsTrue": "1",
-                "conditionsFalse": "2"
-              },
-              "2": {
-                "text": "Was machst du Hier?",
-                "trigger": [],
-                "conditionsTrue": "1",
-                "conditionsFalse": "2"
-              }
-            },
-            "4": {
-              "npc_text": "Ich komme aus Koblenz",
-              "conditions": [],
-              "trigger": [],
-              "options": {
-                "1": {
-                  "text": "Sehr interressant!",
-                  "trigger": [],
-                  "conditionsTrue": "1",
-                  "conditionsFalse": "2"
-                }
-              }
-            }
-          },
-          "Beispiel": {
-            "states": {
-              "0": {
-                "npc_text": "",
-                "trigger": [
-                  "heal_player::50"
-                ],
-                "options": {
-                  "0": {
-                    "text": "gfddsdgfdsg",
-                    "conditions": [],
-                    "trigger": [],
-                    "conditionsTrue": 0,
-                    "conditionsFalse": 0
-                  }
-                }
-              }
-            }
+            "conditions": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
+          }
+        }
+      },
+      "4": {
+        "npc_text": "Ich komme aus Koblenz",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Sehr interressant!",
+            "trigger": [],
+            "conditions": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
+          }
+        }
+      }
+    }
+  },
+  "Beispiel": {
+    "states": {
+      "0": {
+        "npc_text": "",
+        "trigger": [
+          "heal_player::50"
+        ],
+        "options": {
+          "0": {
+            "text": "gfddsdgfdsg",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": 0,
+            "conditionsFalse": 0
           }
         }
       }

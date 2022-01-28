@@ -12,7 +12,8 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class LoadNPC {
-    static String test = "{\"Knecht Ruprecht\":{\"states\":{\"0\":{\"1\":{\"2\":{\"npc_text\":\"Du gieriger Hurensohn!\",\"conditions\":[],\"trigger\":[\"damage_player::20\"],\"options\":{},\"conditionsTrue\":\"\",\"conditionsFalse\":\"\",\"next\":1},\"3\":{\"4\":{\"npc_text\":\"Ich komme aus Koblenz\",\"conditions\":[],\"trigger\":[],\"options\":{\"1\":{\"text\":\"Sehr interressant!\",\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"}}},\"npc_text\":\"\",\"trigger\":[],\"options\":{\"1\":{\"text\":\"Wo kommst du denn her?\",\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"},\"2\":{\"text\":\"Was machst du Hier?\",\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"}}},\"npc_text\":\"Hier ist ein Apfel für dich!\",\"trigger\":[\"heal_player::50\"],\"options\":{\"0\":{\"text\":\"Danke!\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"}},\"Beispiel\":{\"states\":{\"0\":{\"npc_text\":\"\",\"trigger\":[\"heal_player::50\"],\"options\":{\"0\":{\"text\":\"gfddsdgfdsg\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":0,\"conditionsFalse\":0}}}}}},\"npc_text\":\"Wie kann ich Helfen?\",\"trigger\":[],\"options\":{\"0\":{\"text\":\"Kannst du mir mit Leben helfen?\",\"conditions\":[\"hp_below::50\"],\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"},\"1\":{\"text\":\"Nein danke mit ist nicht mehr zu Helfen.\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"},\"2\":{\"text\":\"Nach Informationen Fragen\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"}}}}}}";
+
+    static String test = "{\"Knecht Ruprecht\":{\"states\":{\"0\":{\"npc_text\":\"Wie kann ich Helfen?\",\"trigger\":[],\"options\":{\"0\":{\"text\":\"Kannst du mir mit Leben helfen?\",\"conditions\":[\"hp_below::50\"],\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"},\"1\":{\"text\":\"Nein danke mit ist nicht mehr zu Helfen.\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"},\"2\":{\"text\":\"Nach Informationen Fragen\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"}}},\"1\":{\"npc_text\":\"Hier ist ein Apfel für dich!\",\"trigger\":[\"heal_player::50\"],\"options\":{\"0\":{\"text\":\"Danke!\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"}}},\"2\":{\"npc_text\":\"Du gieriger Hurensohn!\",\"conditions\":[],\"trigger\":[\"damage_player::20\"],\"options\":{},\"conditionsTrue\":\"\",\"conditionsFalse\":\"\",\"next\":1},\"3\":{\"npc_text\":\"\",\"trigger\":[],\"options\":{\"1\":{\"text\":\"Wo kommst du denn her?\",\"trigger\":[],\"conditions\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"},\"2\":{\"text\":\"Was machst du Hier?\",\"trigger\":[],\"conditions\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"}}},\"4\":{\"npc_text\":\"Ich komme aus Koblenz\",\"trigger\":[],\"options\":{\"1\":{\"text\":\"Sehr interressant!\",\"trigger\":[],\"conditions\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"}}}}}}";
 
     private static final String PATH = "src/main/resources/actors/";
 
@@ -41,7 +42,6 @@ public class LoadNPC {
                     ArrayList<Trigger> optionTriggerList = new ArrayList<>();
                     for (Object trigger : current_option.getJSONArray("trigger"))
                         optionTriggerList.add(new Trigger(String.valueOf(trigger)));
-
                     ArrayList<Condition> optionConditionList = new ArrayList<>();
                     for (Object condition : current_option.getJSONArray("conditions"))
                         optionConditionList.add(new Condition(String.valueOf(condition)));
@@ -56,7 +56,6 @@ public class LoadNPC {
                         new State(id, stateTriggerList, options, npc_text)
                 );
             }
-            System.out.println("test");
             npcs.put(npc, new NPC(npc, states));
         }
     }

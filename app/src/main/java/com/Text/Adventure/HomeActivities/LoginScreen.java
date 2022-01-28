@@ -1,16 +1,19 @@
 package com.Text.Adventure.HomeActivities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.Text.Adventure.GameActivities.NPCScreen;
+import com.Text.Adventure.Game.Player;
+import com.Text.Adventure.GameActivities.MainScreen;
 import com.Text.Adventure.Game.LoadNPC;
 import com.Text.Adventure.Google.GoogleActiveAccount;
 import com.Text.Adventure.R;
@@ -41,9 +44,31 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
     private SignInButton signInButton;
     private Button signOutButton;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Player player = new Player("Lappen");
+        player.takeDamage(60);
         System.out.println(LoadNPC.getNpc("Knecht Ruprecht").getName());
+        // TEST
+        LoadNPC.getNpcs().get("Knecht Ruprecht").getStates().forEach((s, state) -> {
+            System.out.println("NPC Text: " + state.getNpc_text());
+            state.getTrigger().forEach(trigger -> {
+                trigger.execute(player);
+                System.out.println("Trigger result: " + player.getHealth());
+            });
+            state.getOptions().forEach((o, option) -> {
+                System.out.println("Option Text: " + option.getText());
+                option.getConditions().forEach(condition -> {
+                    System.out.println("Condition result: " + condition.isCorrect(player));
+                });
+                option.getTrigger().forEach(trigger -> {
+                    trigger.execute(player);
+                    System.out.println("Trigger result: " + player.getHealth());
+                });
+            });
+            System.out.println("------------------------");
+        });
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_screen);
@@ -90,8 +115,8 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
     }
 
     public void goMainScreen(View view) {
-        Intent textScreen = new Intent(this, MainScreen.class);
-        startActivity(textScreen);
+        Intent mainScreen = new Intent(this, MainScreen.class);
+        startActivity(mainScreen);
     }
 
     @Override

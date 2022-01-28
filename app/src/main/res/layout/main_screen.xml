@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#494848"
-    tools:context=".HomeActivities.MainScreen">
+    tools:context=".GameActivities.MainScreen">
 
 
     <TextView
@@ -17,9 +17,17 @@
         android:layout_marginEnd="20dp"
 
         android:background="@drawable/rounded_corners_text"
+        android:includeFontPadding="false"
         android:outlineProvider="none"
+        android:paddingStart="20px"
+        android:paddingLeft="20px"
+        android:paddingTop="20px"
+        android:paddingEnd="20px"
+        android:paddingRight="20px"
+        android:paddingBottom="20px"
         android:text="TextView"
         android:textColor="#FFFFFF"
+        app:barrierMargin="10px"
         app:layout_constraintBottom_toTopOf="@+id/buttonNPC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
@@ -66,13 +74,13 @@
         android:background="@drawable/rounded_corners_button"
         android:text="Süden"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/buttnWest"
+        app:layout_constraintBottom_toTopOf="@+id/buttonWest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttnWest"
+        android:id="@+id/buttonWest"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
@@ -95,6 +103,7 @@
         android:layout_marginEnd="120dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_corners_npc"
+        android:onClick="openNpcScreen"
         android:text="NPC"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/buttonNorth"

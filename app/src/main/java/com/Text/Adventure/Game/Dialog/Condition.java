@@ -1,5 +1,6 @@
 package com.Text.Adventure.Game.Dialog;
 
+import com.Text.Adventure.Game.LoadMap;
 import com.Text.Adventure.Game.Player;
 
 import org.apache.commons.lang3.ArrayUtils;
@@ -30,10 +31,17 @@ public class Condition {
 
         switch (keyword) {
             case "hp_below":
-                if (player.getHealth() < Integer.valueOf(args[0])) {
+                if (player.getHealth() < Integer.parseInt(args[0])) {
                     return true;
                 }
                 return false;
+            case "hasVisitedRoom":
+                for (String id : args) {
+                    if (!(LoadMap.hasVisitedRoom(Integer.valueOf(id)))) {
+                        return false;
+                    }
+                }
+                return true;
             default:
                 return true;
         }

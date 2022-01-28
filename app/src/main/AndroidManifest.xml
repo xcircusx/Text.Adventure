@@ -21,7 +21,7 @@
             android:name=".GameActivities.NPCScreen"
             android:exported="false" />
         <activity
-            android:name=".HomeActivities.MainScreen"
+            android:name=".GameActivities.MainScreen"
             android:exported="false" />
         <activity
             android:name=".GameActivities.FourDecisions"
