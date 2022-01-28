@@ -19,7 +19,7 @@ public class LoadMap {
             "    [ 0 , 0  , 0 , 10 , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
             "    [ 0 , 0  , 0 , -1 , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
             "    [ 0 , 0  , 0 , 11 , 0, 0 , 0 , 0 , 0 , 0 , 0, 0 , 0],\n" +
-            "    [ 0 , 0  , 0 , 1 , 0 , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
+            "    [ 0 , 0  , 0 , 0 , 0 , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
             "    [ 0 , 0  , 0 , 0 , 0, 0 , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
             "    [ 0 , 0  , 0 , 0 , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
             "    [ 0 , 0  , 0 , 0 , 0 , 0 , 0  , 0 , 0 , 0  , 0 , 0  , 0],\n" +
@@ -41,7 +41,7 @@ public class LoadMap {
             "      \"name\": \"Test2\",\n" +
             "      \"description\": \"\",\n" +
             "      \"conditions\": [],\n" +
-            "      \"npcs\": []\n" +
+            "      \"npc\": []\n" +
             "    }\n" +
             "  }\n" +
             "}";
@@ -127,7 +127,7 @@ public class LoadMap {
         return getNumberInMapBinding(currentPosition[0] - 1, currentPosition[1]) != 0;
     }
 
-    public static String[] changeRoom(int direction, Player player) throws Exception {
+    public static String[] changeRoom(int direction, Player player) {
         String[] returnArray = {"", ""};
         int[] newPosition;
         switch (direction) {
@@ -135,6 +135,7 @@ public class LoadMap {
                 if (!northAvailable()) {
                     returnArray[0] = "False";
                     returnArray[1] = "Kein raum.";
+                    return returnArray;
                 }
                 newPosition = new int[]{currentPosition[0], currentPosition[1] - 2};
                 if (getNumberInMapBinding(currentPosition[0], currentPosition[1] - 1) > 0) {
@@ -145,6 +146,7 @@ public class LoadMap {
                 if (!eastAvailable()) {
                     returnArray[0] = "False";
                     returnArray[1] = "Kein raum.";
+                    return returnArray;
                 }
                 newPosition = new int[]{currentPosition[0] + 2, currentPosition[1]};
                 if (getNumberInMapBinding(currentPosition[0] + 1, currentPosition[1]) > 0) {
@@ -155,6 +157,7 @@ public class LoadMap {
                 if (!southAvailable()) {
                     returnArray[0] = "False";
                     returnArray[1] = "Kein raum.";
+                    return returnArray;
                 }
                 newPosition = new int[]{currentPosition[0], currentPosition[1] + 2};
                 if (getNumberInMapBinding(currentPosition[0], currentPosition[1] + 1) > 0) {
@@ -165,6 +168,7 @@ public class LoadMap {
                 if (!westAvailable()) {
                     returnArray[0] = "False";
                     returnArray[1] = "Kein raum.";
+                    return returnArray;
                 }
                 newPosition = new int[]{currentPosition[0] - 2, currentPosition[1]};
                 if (getNumberInMapBinding(currentPosition[0] - 1, currentPosition[1]) > 0) {
@@ -172,8 +176,9 @@ public class LoadMap {
                 }
                 break;
             default:
-                // TODO : ÄNDERN
-                throw new Exception();
+                returnArray[0] = "False";
+                returnArray[1] = "Kein raum.";
+                return returnArray;
         }
         for (Condition condition : getRoom(newPosition[0], newPosition[1]).getConditions()) {
             if (!condition.isCorrect(player)) {
