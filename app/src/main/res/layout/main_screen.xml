@@ -42,11 +42,12 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/rounded_corners_button"
+        android:onClick="openNpcScreen"
         android:text="Norden"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/buttonEast"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button

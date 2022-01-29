@@ -15,6 +15,8 @@ import com.Text.Adventure.R;
 
 public class MainScreen extends AppCompatActivity {
 
+    public static Player player;
+
     private TextView textView;
     private Button buttonNPC;
     private Button buttonNorth;
@@ -25,8 +27,11 @@ public class MainScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Player player = new Player("test");
+
+        player = new Player("test");
+
         setContentView(R.layout.main_screen);
+
         buttonNPC = findViewById(R.id.buttonNPC);
         textView = findViewById(R.id.textView);
 
@@ -36,21 +41,26 @@ public class MainScreen extends AppCompatActivity {
         buttonWest = findViewById(R.id.buttonWest);
 
         System.out.println(LoadMap.getCurrentRoom());
-
-        buttonNorth.setClickable(LoadMap.northAvailable());
-        buttonEast.setClickable(LoadMap.eastAvailable());
-        buttonSouth.setClickable(LoadMap.southAvailable());
-        buttonWest.setClickable(LoadMap.westAvailable());
-
         textView.setText("");
 
         textView.append(LoadMap.getCurrentRoom().getDescription());
 
         buttonTextChanger();
 
+        buttonNorth.setOnClickListener(view -> {
+            changeRoom(1, player);
+        });
+        buttonEast.setOnClickListener(view -> {
+            changeRoom(2, player);
+        });
         buttonSouth.setOnClickListener(view -> {
             changeRoom(3, player);
         });
+        buttonWest.setOnClickListener(view -> {
+            changeRoom(4, player);
+        });
+        setButtonNPCText();
+        changeButtonAvailability();
     }
 
     public void openNpcScreen(View view) {
@@ -88,11 +98,23 @@ public class MainScreen extends AppCompatActivity {
         }
     }
 
+    private void setButtonNPCText() {
+        buttonNPC.setText("NPC");
+        buttonNPC.setClickable(false);
+        buttonNPC.setVisibility(View.INVISIBLE);
+        if (!(LoadMap.getCurrentRoom().getNpcs().size() == 0)) {
+            buttonNPC.setText(LoadMap.getCurrentRoom().getNpcs().get(0).getName());
+            buttonNPC.setClickable(true);
+            buttonNPC.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void changeRoom(int dir, Player player){
         String[] result = LoadMap.changeRoom(dir, player);
         if (result[0].equals("True")){
             buttonTextChanger();
             changeButtonAvailability();
+            setButtonNPCText();
             textView.setText("");
             textView.append(LoadMap.getCurrentRoom().getDescription());
         } else {

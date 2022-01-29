@@ -9,20 +9,28 @@
 
     <TextView
         android:id="@+id/textViewNPC"
-        android:layout_width="350dp"
-        android:layout_height="450dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_corners_npc"
         android:outlineProvider="none"
         android:paddingStart="20px"
         android:paddingLeft="20px"
         android:paddingTop="20px"
         android:paddingEnd="20px"
+
+        android:gravity="bottom"
+
         android:paddingRight="20px"
         android:paddingBottom="20px"
-
+        android:scrollbars="vertical"
         android:text="Text von einem NPC"
         android:textColor="#FFFFFF"
+        android:verticalScrollbarPosition="defaultPosition"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNPC1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"

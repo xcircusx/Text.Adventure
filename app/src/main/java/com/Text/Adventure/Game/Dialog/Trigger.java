@@ -7,6 +7,7 @@ import org.apache.commons.lang3.ArrayUtils;
 public class Trigger {
 
     private String trigger;
+    private boolean executed = false;
 
     private String[] parseTrigger() {
         if (!trigger.contains("::")) {
@@ -37,6 +38,10 @@ public class Trigger {
                 player.takeHeal(Integer.valueOf(args[0]));
                 break;
         }
+        this.executed = true;
+    }
 
+    public boolean isExecuted() {
+        return executed;
     }
 }

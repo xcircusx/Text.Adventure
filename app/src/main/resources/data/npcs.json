@@ -18,15 +18,15 @@
             "text": "Nein danke mit ist nicht mehr zu Helfen.",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "1",
-            "conditionsFalse": "2"
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
           },
           "2": {
             "text": "Nach Informationen Fragen",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "1",
-            "conditionsFalse": "2"
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
           }
         }
       },
@@ -40,8 +40,8 @@
             "text": "Danke!",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "1",
-            "conditionsFalse": "2"
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
           }
         }
       },
@@ -51,28 +51,36 @@
         "trigger": [
           "damage_player::20"
         ],
-        "options": {},
+        "options": {
+          "0": {
+            "text": "Mal nicht so aggressiv Rüdiger!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "2"
+          }
+        },
         "conditionsTrue": "",
         "conditionsFalse": "",
         "next": 1
       },
-      "3": {
-        "npc_text": "",
+      "informationen": {
+        "npc_text": "Was für Informationen brauchst du?",
         "trigger": [],
         "options": {
           "1": {
             "text": "Wo kommst du denn her?",
             "trigger": [],
             "conditions": [],
-            "conditionsTrue": "1",
-            "conditionsFalse": "2"
+            "conditionsTrue": "4",
+            "conditionsFalse": "0"
           },
           "2": {
             "text": "Was machst du Hier?",
             "trigger": [],
             "conditions": [],
-            "conditionsTrue": "1",
-            "conditionsFalse": "2"
+            "conditionsTrue": "4",
+            "conditionsFalse": "0"
           }
         }
       },
@@ -84,27 +92,8 @@
             "text": "Sehr interressant!",
             "trigger": [],
             "conditions": [],
-            "conditionsTrue": "1",
-            "conditionsFalse": "2"
-          }
-        }
-      }
-    }
-  },
-  "Beispiel": {
-    "states": {
-      "0": {
-        "npc_text": "",
-        "trigger": [
-          "heal_player::50"
-        ],
-        "options": {
-          "0": {
-            "text": "gfddsdgfdsg",
-            "conditions": [],
-            "trigger": [],
-            "conditionsTrue": 0,
-            "conditionsFalse": 0
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
           }
         }
       }
