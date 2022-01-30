@@ -1,5 +1,6 @@
 package com.Text.Adventure.Game;
 
+import com.Text.Adventure.Firebase.FirebaseActiveAccount;
 import com.Text.Adventure.Game.Dialog.Condition;
 import com.Text.Adventure.json.JSONArray;
 import com.Text.Adventure.json.JSONObject;
@@ -9,42 +10,11 @@ import java.util.HashMap;
 
 public class LoadMap {
 
-    private static final String map = "{\n" +
-            "  \"start\": {\n" +
-            "    \"x\": \"3\",\n" +
-            "    \"y\": \"1\"\n" +
-            "  },\n" +
-            "  \"roomMappings\": [\n" +
-            "    [ 0 , 0  , 0 , 0  , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
-            "    [ 0 , 0  , 0 , 10 , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
-            "    [ 0 , 0  , 0 , -1 , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
-            "    [ 0 , 0  , 0 , 11 , 0, 0 , 0 , 0 , 0 , 0 , 0, 0 , 0],\n" +
-            "    [ 0 , 0  , 0 , 0 , 0 , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
-            "    [ 0 , 0  , 0 , 0 , 0, 0 , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
-            "    [ 0 , 0  , 0 , 0 , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
-            "    [ 0 , 0  , 0 , 0 , 0 , 0 , 0  , 0 , 0 , 0  , 0 , 0  , 0],\n" +
-            "    [ 0 , 0  , 0 , 0 , 0 , 0 , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
-            "    [ 0 , 0  , 0 , 0 , 0 , 0 , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
-            "    [ 0 , 0  , 0 , 0  , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0],\n" +
-            "    [ 0 , 0  , 0 , 0  , 0 , 0  , 0  , 0  , 0 , 0  , 0 , 0  , 0]\n" +
-            "  ],\n" +
-            "  \"rooms\": {\n" +
-            "    \"10\": {\n" +
-            "      \"name\": \"Test1\",\n" +
-            "      \"description\": \"Ein leerer Raum!\",\n" +
-            "      \"conditions\": [],\n" +
-            "      \"npc\": [\n" +
-            "        \"Knecht Ruprecht\"\n" +
-            "      ]\n" +
-            "    },\n" +
-            "    \"11\": {\n" +
-            "      \"name\": \"Test2\",\n" +
-            "      \"description\": \"\",\n" +
-            "      \"conditions\": [],\n" +
-            "      \"npc\": []\n" +
-            "    }\n" +
-            "  }\n" +
-            "}";
+    private static String map;
+
+    static {
+        map = FirebaseActiveAccount.map;
+    }
 
     private static final JSONObject mapJson = new JSONObject(map);
 
@@ -80,6 +50,7 @@ public class LoadMap {
         int roomId = getNumberInMapBinding(x, y);
 
         JSONObject room = mapJson.getJSONObject("rooms").getJSONObject(String.valueOf(roomId));
+
         ArrayList<Condition> conditions = new ArrayList<>();
         JSONArray conditions_array = mapJson.getJSONObject("rooms").getJSONObject(String.valueOf(roomId)).getJSONArray("conditions");
         for (Object condition : conditions_array) {

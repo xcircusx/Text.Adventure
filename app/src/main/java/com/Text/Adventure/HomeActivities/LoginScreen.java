@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.Text.Adventure.Firebase.FirebaseActiveAccount;
 import com.Text.Adventure.Game.Player;
 import com.Text.Adventure.GameActivities.MainScreen;
 import com.Text.Adventure.Game.LoadNPC;
@@ -47,32 +48,8 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Player player = new Player("Lappen");
-        player.takeDamage(60);
-        System.out.println(LoadNPC.getNpc("Knecht Ruprecht").getName());
-        // TEST
-        LoadNPC.getNpcs().get("Knecht Ruprecht").getStates().forEach((s, state) -> {
-            System.out.println("NPC Text: " + state.getNpc_text());
-            state.getTrigger().forEach(trigger -> {
-                trigger.execute(player);
-                System.out.println("Trigger result: " + player.getHealth());
-            });
-            state.getOptions().forEach((o, option) -> {
-                System.out.println("Option Text: " + option.getText());
-                option.getConditions().forEach(condition -> {
-                    System.out.println("Condition result: " + condition.isCorrect(player));
-                });
-                option.getTrigger().forEach(trigger -> {
-                    trigger.execute(player);
-                    System.out.println("Trigger result: " + player.getHealth());
-                });
-            });
-            System.out.println("------------------------");
-        });
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_screen);
-
         mAuth = FirebaseAuth.getInstance();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -111,6 +88,9 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         GoogleActiveAccount.setAccount(account);
+        if (GoogleActiveAccount.getAccount() != null && FirebaseActiveAccount.getAccount() != null) {
+            firebaseAuthWithGoogle(GoogleActiveAccount.getAccount());
+        }
         updateUI();
     }
 
@@ -156,7 +136,6 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
-
         updateUI();
     }
 
@@ -174,12 +153,14 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnSuccessListener(this, authResult -> {
-                    startActivity(new Intent(LoginScreen.this, LoginScreen.class));
+                    FirebaseActiveAccount.setAccount(authResult.getUser());
                     finish();
                 })
-                .addOnFailureListener(this, e -> Toast.makeText(LoginScreen.this, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                .addOnFailureListener(this, e -> {
+                        Toast.makeText(LoginScreen.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                    }
                 );
+        startActivity(new Intent(LoginScreen.this, LoginScreen.class));
     }
 
     @Override

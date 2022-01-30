@@ -1,5 +1,6 @@
 package com.Text.Adventure.Game;
 
+import com.Text.Adventure.Firebase.FirebaseActiveAccount;
 import com.Text.Adventure.Game.Dialog.Condition;
 import com.Text.Adventure.Game.Dialog.Option;
 import com.Text.Adventure.Game.Dialog.State;
@@ -13,14 +14,16 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class LoadNPC {
 
-    static String test = "{\"Knecht Ruprecht\":{\"states\":{\"0\":{\"npc_text\":\"Wie kann ich Helfen?\",\"trigger\":[],\"options\":{\"0\":{\"text\":\"Kannst du mir mit Leben helfen?\",\"conditions\":[\"hp_below::50\"],\"trigger\":[],\"conditionsTrue\":\"1\",\"conditionsFalse\":\"2\"},\"1\":{\"text\":\"Nein danke mit ist nicht mehr zu Helfen.\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":\"informationen\",\"conditionsFalse\":\"0\"},\"2\":{\"text\":\"Nach Informationen Fragen\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":\"informationen\",\"conditionsFalse\":\"0\"}}},\"1\":{\"npc_text\":\"Hier ist ein Apfel für dich!\",\"trigger\":[\"heal_player::50\"],\"options\":{\"0\":{\"text\":\"Danke!\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":\"informationen\",\"conditionsFalse\":\"0\"}}},\"2\":{\"npc_text\":\"Du gieriger Hurensohn!\",\"conditions\":[],\"trigger\":[\"damage_player::20\"],\"options\":{\"0\":{\"text\":\"Mal nicht so aggressiv Rüdiger!\",\"conditions\":[],\"trigger\":[],\"conditionsTrue\":\"informationen\",\"conditionsFalse\":\"2\"}},\"conditionsTrue\":\"\",\"conditionsFalse\":\"\",\"next\":1},\"4\":{\"npc_text\":\"Ich komme aus Koblenz\",\"trigger\":[],\"options\":{\"1\":{\"text\":\"Sehr interressant!\",\"trigger\":[],\"conditions\":[],\"conditionsTrue\":\"informationen\",\"conditionsFalse\":\"0\"}}},\"informationen\":{\"npc_text\":\"Was für Informationen brauchst du?\",\"trigger\":[],\"options\":{\"1\":{\"text\":\"Wo kommst du denn her?\",\"trigger\":[],\"conditions\":[],\"conditionsTrue\":\"4\",\"conditionsFalse\":\"0\"},\"2\":{\"text\":\"Was machst du Hier?\",\"trigger\":[],\"conditions\":[],\"conditionsTrue\":\"4\",\"conditionsFalse\":\"0\"}}}}}}";
+    static String npcString = "";
 
     private static final String PATH = "src/main/resources/actors/";
 
     private static final HashMap<String, NPC> npcs = new HashMap<>();
 
     static {
-        JSONObject npcsJson = new JSONObject(test);
+        npcString = FirebaseActiveAccount.npcs;
+
+        JSONObject npcsJson = new JSONObject(npcString);
 
         for (String npc : npcsJson.keySet()) {
             HashMap<String, State> states = new HashMap<>();
