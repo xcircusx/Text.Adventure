@@ -5,23 +5,71 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
+import com.Text.Adventure.Firebase.FirebaseFunctions;
+import com.Text.Adventure.Game.LoadMap;
+import com.Text.Adventure.Game.LoadNPC;
+import com.Text.Adventure.Game.Player;
+import com.Text.Adventure.Game.Savestate;
 import com.Text.Adventure.GameActivities.MainScreen;
 import com.Text.Adventure.R;
 
+import java.util.Base64;
 
 
 public class HomeScreen extends AppCompatActivity  {
 
+    public static Player player;
+
+    private static String playerSave;
+    private static String npcSave;
+    private static String mapSave;
+
+    private Savestate savestate;
+    private String encodedSave;
+
+    private TextView saveButton;
+    private TextView loadButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
+
+        player = new Player("player");
+        saveButton = findViewById(R.id.textView_survived);
+        loadButton = findViewById(R.id.textView_dead);
+        saveButton.setOnClickListener(view -> saveGame());
+        loadButton.setOnClickListener(view -> loadGame());
+    }
+
+    public static Player getPlayer() {
+        return player;
     }
 
     public void goMainScreen(View view){
         Intent mainScreen = new Intent( this, MainScreen.class);
         startActivity(mainScreen);
+    }
+
+    private void loadGame() {
+        System.out.println(FirebaseFunctions.getCurrentUser().getSavestate());;
+        byte[] decodedBytes = Base64.getDecoder().decode(FirebaseFunctions.getCurrentUser().getSavestate());
+        savestate = Savestate.loadFromJson(new String(decodedBytes));
+        player = Player.fromJson(savestate.getPlayerSave());
+        System.out.println(savestate.getNpcSave());
+        LoadNPC.fromJson(savestate.getNpcSave());
+        LoadMap.fromJson(savestate.getMapSave());
+    }
+
+    private void saveGame() {
+        playerSave = player.toJson();
+        npcSave = LoadNPC.toJson();
+        mapSave = LoadMap.toJson();
+        savestate = new Savestate(mapSave, playerSave, npcSave);
+        encodedSave = savestate.encodeSave();
+        byte[] encodedBytes = Base64.getEncoder().encode(encodedSave.getBytes());
+        FirebaseFunctions.setUserSaveState(new String(encodedBytes));
     }
 }

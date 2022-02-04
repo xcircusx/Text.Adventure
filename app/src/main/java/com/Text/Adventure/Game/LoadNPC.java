@@ -1,16 +1,15 @@
 package com.Text.Adventure.Game;
 
-import com.Text.Adventure.Firebase.FirebaseActiveAccount;
+import com.Text.Adventure.Firebase.FirebaseFunctions;
 import com.Text.Adventure.Game.Dialog.Condition;
 import com.Text.Adventure.Game.Dialog.Option;
 import com.Text.Adventure.Game.Dialog.State;
 import com.Text.Adventure.Game.Dialog.Trigger;
 import com.Text.Adventure.json.JSONObject;
+import com.google.gson.Gson;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class LoadNPC {
 
@@ -18,10 +17,10 @@ public class LoadNPC {
 
     private static final String PATH = "src/main/resources/actors/";
 
-    private static final HashMap<String, NPC> npcs = new HashMap<>();
+    private static HashMap<String, NPC> npcs = new HashMap<String, NPC>();
 
     static {
-        npcString = FirebaseActiveAccount.npcs;
+        npcString = FirebaseFunctions.npcs;
 
         JSONObject npcsJson = new JSONObject(npcString);
 
@@ -69,5 +68,20 @@ public class LoadNPC {
 
     public static NPC getNpc(String name) {
         return npcs.get(name);
+    }
+
+    public static String toJson() {
+        HashMap<String, String> currentStates = new HashMap<>();
+        npcs.forEach((name, npc) -> {
+            currentStates.put(name, npc.getCurrentStateId());
+        });
+        return new Gson().toJson(currentStates);
+    }
+
+    public static void fromJson(String json) {
+        HashMap<String, String> newStates = new Gson().fromJson(json, HashMap.class);
+        newStates.forEach((npc_name, state) -> {
+            npcs.get(npc_name).setCurrentStateId(state);
+        });
     }
 }

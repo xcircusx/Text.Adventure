@@ -44,4 +44,5 @@ public class Trigger {
     public boolean isExecuted() {
         return executed;
     }
+
 }

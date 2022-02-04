@@ -46,7 +46,7 @@
         android:paddingRight="20px"
         android:paddingBottom="20px"
 
-        android:text="TextView"
+        android:text="Laden"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
@@ -69,7 +69,7 @@
         android:paddingRight="20px"
         android:paddingBottom="20px"
 
-        android:text="TextView"
+        android:text="Speichern"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.472"

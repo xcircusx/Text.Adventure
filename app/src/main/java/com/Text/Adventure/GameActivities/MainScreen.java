@@ -11,11 +11,12 @@ import android.widget.TextView;
 import com.Text.Adventure.Game.LoadMap;
 import com.Text.Adventure.Game.Player;
 import com.Text.Adventure.Game.Room;
+import com.Text.Adventure.HomeActivities.HomeScreen;
 import com.Text.Adventure.R;
 
 public class MainScreen extends AppCompatActivity {
 
-    public static Player player;
+    private Player player;
 
     private TextView textView;
     private Button buttonNPC;
@@ -27,8 +28,7 @@ public class MainScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        player = new Player("test");
+        this.player = HomeScreen.player;
 
         setContentView(R.layout.main_screen);
 
@@ -40,7 +40,6 @@ public class MainScreen extends AppCompatActivity {
         buttonSouth = findViewById(R.id.buttonSouth);
         buttonWest = findViewById(R.id.buttonWest);
 
-        System.out.println(LoadMap.getCurrentRoom());
         textView.setText("");
 
         textView.append(LoadMap.getCurrentRoom().getDescription());

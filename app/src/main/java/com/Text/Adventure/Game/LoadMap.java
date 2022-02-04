@@ -1,6 +1,6 @@
 package com.Text.Adventure.Game;
 
-import com.Text.Adventure.Firebase.FirebaseActiveAccount;
+import com.Text.Adventure.Firebase.FirebaseFunctions;
 import com.Text.Adventure.Game.Dialog.Condition;
 import com.Text.Adventure.json.JSONArray;
 import com.Text.Adventure.json.JSONObject;
@@ -13,10 +13,10 @@ public class LoadMap {
     private static String map;
 
     static {
-        map = FirebaseActiveAccount.map;
+        map = FirebaseFunctions.map;
     }
 
-    private static final JSONObject mapJson = new JSONObject(map);
+    private static JSONObject mapJson = new JSONObject(map);
 
     private static int[] currentPosition = new int[]{mapJson.getJSONObject("start").getInt("x"), mapJson.getJSONObject("start").getInt("y")};
     private static final HashMap<Integer, Room> loadedRooms = new HashMap<>();
@@ -198,5 +198,13 @@ public class LoadMap {
 
     public static boolean hasVisitedRoom(int id) {
         return loadedRooms.containsKey(id);
+    }
+
+    public static String toJson() {
+        return mapJson.toString();
+    }
+
+    public static void fromJson(String json)  {
+        mapJson = new JSONObject(json);
     }
 }

@@ -18,6 +18,7 @@ import com.Text.Adventure.Game.Dialog.Trigger;
 import com.Text.Adventure.Game.LoadMap;
 import com.Text.Adventure.Game.NPC;
 import com.Text.Adventure.Game.Player;
+import com.Text.Adventure.HomeActivities.HomeScreen;
 import com.Text.Adventure.R;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class NPCScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.npc_screen);
 
-        player = MainScreen.player;
+        player = HomeScreen.getPlayer();
 
         optionButtons = new Button[3];
 

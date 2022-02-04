@@ -2,6 +2,10 @@ package com.Text.Adventure.Game;
 
 import android.content.Intent;
 
+import com.google.gson.Gson;
+
+import java.io.Serializable;
+
 public class Player {
 
     private String name;
@@ -40,12 +44,19 @@ public class Player {
         this.name = name;
     }
 
-
     public int getHealth() {
         return health;
     }
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public String toJson() {
+        return new Gson().toJson(this);
+    }
+
+    public static Player fromJson(String json) {
+        return new Gson().fromJson(json, Player.class);
     }
 }

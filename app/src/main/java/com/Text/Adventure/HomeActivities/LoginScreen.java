@@ -12,10 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.Text.Adventure.Firebase.FirebaseActiveAccount;
-import com.Text.Adventure.Game.Player;
+import com.Text.Adventure.Firebase.FirebaseFunctions;
 import com.Text.Adventure.GameActivities.MainScreen;
-import com.Text.Adventure.Game.LoadNPC;
 import com.Text.Adventure.Google.GoogleActiveAccount;
 import com.Text.Adventure.R;
 import com.google.android.gms.auth.api.Auth;
@@ -24,9 +22,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -34,7 +30,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 
-public class LoginScreen extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
+public class LoginScreen extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "SingInActivity";
     private static final int RC_SIGN_IN = 9001;
@@ -88,7 +84,7 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         GoogleActiveAccount.setAccount(account);
-        if (GoogleActiveAccount.getAccount() != null && FirebaseActiveAccount.getAccount() != null) {
+        if (GoogleActiveAccount.getAccount() != null && FirebaseFunctions.getAccount() != null) {
             firebaseAuthWithGoogle(GoogleActiveAccount.getAccount());
         }
         updateUI();
@@ -121,11 +117,9 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
-        System.out.println(result.getStatus());
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             GoogleActiveAccount.setAccount(result.getSignInAccount());
-            System.out.println(GoogleActiveAccount.getAccount().getEmail());
             firebaseAuthWithGoogle(GoogleActiveAccount.getAccount());
             updateUI();
         } else {
@@ -140,6 +134,8 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
     }
 
     private void signOut() {
+        mAuth.signOut();
+        FirebaseFunctions.setAccount(null);
         mGoogleSignInClient.signOut().addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -153,7 +149,8 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnSuccessListener(this, authResult -> {
-                    FirebaseActiveAccount.setAccount(authResult.getUser());
+                    FirebaseFunctions.setAccount(authResult.getUser());
+                    FirebaseFunctions.getAppUser();
                     finish();
                 })
                 .addOnFailureListener(this, e -> {
@@ -161,11 +158,6 @@ public class LoginScreen extends AppCompatActivity implements GoogleApiClient.On
                     }
                 );
         startActivity(new Intent(LoginScreen.this, LoginScreen.class));
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
     }
 
     public void goHomeScreen(View view) {
