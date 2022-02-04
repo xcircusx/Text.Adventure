@@ -24,9 +24,6 @@
             android:name=".GameActivities.MainScreen"
             android:exported="false" />
         <activity
-            android:name=".GameActivities.FourDecisions"
-            android:exported="false" />
-        <activity
             android:name=".GameActivities.TwoDecisions"
             android:exported="false" />
         <activity
