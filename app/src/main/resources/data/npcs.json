@@ -198,5 +198,293 @@
         }
       }
     }
+  },
+  "Gauner": {
+    "states": {
+      "0": {
+        "npc_text": "Wie kann ich Helfen?",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Kannst du mir mit Leben helfen?",
+            "conditions": [
+              "hp_below::50"
+            ],
+            "trigger": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
+          },
+          "1": {
+            "text": "Nein danke mit ist nicht mehr zu Helfen.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          },
+          "2": {
+            "text": "Nach Informationen Fragen",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      },
+      "1": {
+        "npc_text": "Hier ist ein Apfel für dich!",
+        "trigger": [
+          "heal_player::50"
+        ],
+        "options": {
+          "0": {
+            "text": "Danke!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      }
+    }
+  },
+  "Schmuggler": {
+    "states": {
+      "0": {
+        "npc_text": "Wie kann ich Helfen?",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Kannst du mir mit Leben helfen?",
+            "conditions": [
+              "hp_below::50"
+            ],
+            "trigger": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
+          },
+          "1": {
+            "text": "Nein danke mit ist nicht mehr zu Helfen.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          },
+          "2": {
+            "text": "Nach Informationen Fragen",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      },
+      "1": {
+        "npc_text": "Hier ist ein Apfel für dich!",
+        "trigger": [
+          "heal_player::50"
+        ],
+        "options": {
+          "0": {
+            "text": "Danke!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      }
+    }
+  },
+  "Gollum": {
+    "states": {
+      "0": {
+        "npc_text": "Wie kann ich Helfen?",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Kannst du mir mit Leben helfen?",
+            "conditions": [
+              "hp_below::50"
+            ],
+            "trigger": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
+          },
+          "1": {
+            "text": "Nein danke mit ist nicht mehr zu Helfen.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          },
+          "2": {
+            "text": "Nach Informationen Fragen",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      },
+      "1": {
+        "npc_text": "Hier ist ein Apfel für dich!",
+        "trigger": [
+          "heal_player::50"
+        ],
+        "options": {
+          "0": {
+            "text": "Danke!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      }
+    }
+  },
+  "Seltsame Katze": {
+    "states": {
+      "0": {
+        "npc_text": "Wie kann ich Helfen?",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Kannst du mir mit Leben helfen?",
+            "conditions": [
+              "hp_below::50"
+            ],
+            "trigger": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
+          },
+          "1": {
+            "text": "Nein danke mit ist nicht mehr zu Helfen.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          },
+          "2": {
+            "text": "Nach Informationen Fragen",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      },
+      "1": {
+        "npc_text": "Hier ist ein Apfel für dich!",
+        "trigger": [
+          "heal_player::50"
+        ],
+        "options": {
+          "0": {
+            "text": "Danke!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      }
+    }
+  },
+  "Freundlicher Mann": {
+    "states": {
+      "0": {
+        "npc_text": "Wie kann ich Helfen?",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Kannst du mir mit Leben helfen?",
+            "conditions": [
+              "hp_below::50"
+            ],
+            "trigger": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
+          },
+          "1": {
+            "text": "Nein danke mit ist nicht mehr zu Helfen.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          },
+          "2": {
+            "text": "Nach Informationen Fragen",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      },
+      "1": {
+        "npc_text": "Hier ist ein Apfel für dich!",
+        "trigger": [
+          "heal_player::50"
+        ],
+        "options": {
+          "0": {
+            "text": "Danke!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      }
+    }
+  },
+  "Freundliche Frau": {
+    "states": {
+      "0": {
+        "npc_text": "Wie kann ich Helfen?",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Kannst du mir mit Leben helfen?",
+            "conditions": [
+              "hp_below::50"
+            ],
+            "trigger": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
+          },
+          "1": {
+            "text": "Nein danke mit ist nicht mehr zu Helfen.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          },
+          "2": {
+            "text": "Nach Informationen Fragen",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      },
+      "1": {
+        "npc_text": "Hier ist ein Apfel für dich!",
+        "trigger": [
+          "heal_player::50"
+        ],
+        "options": {
+          "0": {
+            "text": "Danke!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          }
+        }
+      }
+    }
   }
 }

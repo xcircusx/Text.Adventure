@@ -6,172 +6,192 @@
   "roomMappings": [
     [ 0 , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0],
     [ 0 , 0  , 0  , 10 , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0],
-    [ 0 , 0  , 0  , -1 , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0],
+    [ 0 , 0  , 0  ,  1 , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0],
     [ 0 , 0  , 0  , 11 , -1 , 12 , 0  , 17 , 0  , 0  , 0  , 0  , 0],
     [ 0 , 0  , 0  , -1 , 0  , 0  , 0  , -1 , 0  , 0  , 0  , 0  , 0],
     [ 0 , 0  , 0  , 13 , -1 , 14 , -1 , 15 , -1 , 16 , 0  , 0  , 0],
+    [ 0 , 0  , 0  , 0  , 0  , -1 , 0  , -1 , 0  ,  1 , 0  , 0  , 0],
+    [ 0 , 0  , 0  , 0  , 0  , 18 , 0  , 19 , 0  , 20 , 0  , 0  , 0],
     [ 0 , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  ,  1 , 0  , 0  , 0],
-    [ 0 , 0  , 0  , 22 , -1 , 21 , -1 , 20 , -1 , 18 , -1 , 19 , 0],
+    [ 0 , 0  , 0  , 25 , -1 , 24 , -1 , 23 , -1 , 21 , -1 , 22 , 0],
     [ 0 , 0  , 0  , -1 , 0  , -1 , 0  , 0  , 0  , 0  , 0  , 0  , 0],
-    [ 0 , 25 , -1 , 24 , 0  , 23 , 0  , 0  , 0  , 0  , 0  , 0  , 0],
+    [ 0 , 28 , -1 , 27 , 0  , 26 , 0  , 0  , 0  , 0  , 0  , 0  , 0],
     [ 0 , 0  , 0  , -1 , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0],
-    [ 0 , 27 , -1 , 26 , -1 , 28 , 0  , 32 , 0  , 0  , 0  , 0  , 0],
-    [ 0 , 0  , 0  ,  1 , 0  , 0  , 0  ,  1 , 0  , 0  , 0  , 0  , 0],
-    [ 0 , 0  , 0  , 29 , -1 , 30 , -1 , 31 ,  1 , 33 , 0  , 0  , 0],
+    [ 0 , 30 , -1 , 29 , -1 , 31 , 0  , 35 , 0  , 0  , 0  , 0  , 0],
+    [ 0 , 0  , 0  , -1 , 0  , 0  , 0  ,  1 , 0  , 0  , 0  , 0  , 0],
+    [ 0 , 0  , 0  , 32 , -1 , 33 , -1 , 34 ,  1 , 36 , 0  , 0  , 0],
     [ 0 , 0  , 0  , 0  , 0  , 0  , 0  ,  1 , 0  , 0  , 0  , 0  , 0],
-    [ 0 , 0  , 0  , 0  , 0  , 0  , 0  , 34 , 0  , 0  , 0  , 0  , 0],
+    [ 0 , 0  , 0  , 0  , 0  , 0  , 0  , 37 , 0  , 0  , 0  , 0  , 0],
     [ 0 , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0]
   ],
   "rooms": {
     "10": {
       "name": "Eingstürzter Raum",
-      "description": "Du wachst mit schmerzendem Körper in einem dunklen Raum aus. Über dir ist ein Loch in der Decke, durch welches Sternenlicht auf dich scheint. \r\n Vor dir ist ein Durchgang, durch den Licht auf dich fällt.",
+      "description": "Du wachst mit schmerzendem Körper in einem dunklen Raum aus. Über dir ist ein Loch in der Decke, durch welches Sternenlicht auf dich scheint. \r\nVor dir ist ein Durchgang, durch den Licht auf dich fällt.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "11": {
       "name": "Durchgang",
-      "description": "Du stehst in einem Durchgang, welcher zu einem Kerker führt. Neben dir ist eine Wachstube in welcher ein müder Wächter sitzt.",
+      "description": "Du stehst in einem Durchgang, welcher zu einem Kerker führt. Neben dir ist eine Wachstube, in welcher ein müder Wächter sitzt.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "12": {
       "name": "Wachstube",
       "description": "Der Wächter schaut dich aus müden Augen hoffnungslos an.",
       "conditions": [],
-      "npcs": ["Müder Wächter"]
+      "npc": ["Müder Wächter"]
     },
     "13": {
       "name": "Eingang Kerker",
       "description": "Du stehst in einem weiteren Durchgang, zu desen Seite der Kerker liegt. Eine verrostete Gittertür versperrt dir den Weg am Kerker vorbei.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "14": {
-      "name": "Test2",
-      "description": "",
+      "name": "Durchgang Kerker",
+      "description": "Du stehst im Kerkergang. Neben dir ist eine Zelle mit einem schmutzig aussehenden Insassen.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "15": {
-      "name": "Test2",
-      "description": "",
+      "name": "Durchgang Kerker",
+      "description": "Du stehst im Kerker. Um dich herum sind drei Kerkerzellen. In einer sitzt gemein aussehender Insasse. ",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "16": {
-      "name": "Test2",
-      "description": "",
+      "name": "Zelle am Ende des Ganges",
+      "description": "Die Zelle ist leer, nur in einer Ecke befindet sich ein verrostetes Gitter, welches nach einem Durchgang in die Kanalisation aussieht. ",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "17": {
-      "name": "Test2",
-      "description": "",
+      "name": "Zelle mit Gauner",
+      "description": "Der gemein aussehende Mann schaut dich hinterlistig an und erhebt sich vom Boden. Er geht einen Schritt auf dich zu und zieht einen rostigen Nagel aus der Hosentasche.",
       "conditions": [],
-      "npcs": []
+      "npc": ["Gauner"]
     },
     "18": {
-      "name": "Test2",
-      "description": "",
+      "name": "Zelle mit Schmuggler",
+      "description": "Der schmutzig aussehende Insass erhebt sich vom Boden und schüttelt dir die Hand. Du siehts alte Brotstücke auf den Boden liegen und einen Haufen Strohe, welchen der Insasse wohl als Schlafplatz benutzt.",
       "conditions": [],
-      "npcs": []
+      "npc": ["Schmuggler"]
     },
     "19": {
-      "name": "Test2",
-      "description": "",
+      "name": "Leere Zelle",
+      "description": "Du betrittst die Zelle und schaust dich um. In einer Ecke liegt ein Haufen alter Konchen. Ob es sich um menschliche Knochen oder die eines Tieres handelt kannst du nicht erkennen. In einer anderen Ecke siehst du ein Loche welches in die Kanalisation führt und durch Gitter versperrt ist.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "20": {
-      "name": "Test2",
-      "description": "",
+      "name": "Kanalistion",
+      "description": "Du springst solange auf dem Gitter rum, bis es nachgibt und du runter in die Kanalisation rutschst. Du kannst dich am Rand festhalten und schaust nach oben. Der weg nach oben ist unmöglich, du schaust nach unten. Es geht noch ein Stück runter, aber du kannst den Boden erkennen.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "21": {
-      "name": "Test2",
-      "description": "",
+      "name": "Kanalisation",
+      "description": "Du landest knietief im Abwasser, ein widerlichter Geruch steigt dir in dies Nase. Du schaust dich um, es gibt zwei Richtungen in die du gehen kannst. In einer Richtung kannst du ganz entfernt etwas Licht erkennen, in der anderen Richtung hörst du nur ein leisees 'Mein Schatz'",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "22": {
-      "name": "Test2",
-      "description": "",
+      "name": "Richtung Geräusch",
+      "description": "Du folgst dem Geräusch in eine Höhle. Du trittst in Wasser und bemerkst, dass du am Rand eines unterirdischen Sees stehst. Auf der Mitte des Sees befindet sich eine kleine Insel von der dich ein Paar leuchtender Augen anschauen. Du siehst eine Wesen auf ein Boot klettern und lautlos auf dich zukommen. Es kommt auf dich zu und fragt laut 'Was ist es mein Schatz, was ist es?!'",
       "conditions": [],
-      "npcs": []
+      "npc": ["Gollum"]
     },
     "23": {
-      "name": "Test2",
-      "description": "",
+      "name": "Kanalisation",
+      "description": "Du folgst dem Licht und gehst weiter durch die Kanalisation.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "24": {
-      "name": "Test2",
-      "description": "",
+      "name": "Kanalisation",
+      "description": "Du kommst dem Licht immer näher und erkennst eine Öffnung oben an der Wand, durch welche das Licht kommt. Neben dir siehst du auch noch einen kleinen Raum.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "25": {
-      "name": "Test2",
-      "description": "",
+      "name": "Galerie Eingang",
+      "description": "Nachdem du durch die Öffnung aus der Kanalisation hinausgeklettert bist, schaust du dich um. Du siehst die andere Seite der verrosteten Gittertür, welche den Durchgang vom Verließ zur Galerie versperrt hat. \n\rEin Räuspern lässt dich zusammen zucken und du drehst dich um. Hinter dir sitzt eine seltsam aussehende Katze, welche dich mit einem durchdringenden Blick anstart.",
       "conditions": [],
-      "npcs": []
+      "npc": ["Seltsame Katze"]
     },
     "26": {
-      "name": "Test2",
-      "description": "",
+      "name": "Kleiner Raum",
+      "description": "Du betrittst den Raum und findest ein halb verbranntes Stück Pergament. Du kannst nur noch 'gut, dass Holz immer oben schwimmt'.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "27": {
-      "name": "Test2",
-      "description": "",
+      "name": "Galerie",
+      "description": "Nachdem du durch die Tür getretten bist schaust du dich um. Um dich herum ist eine wunscherschöne Galerie. Du erkennst Gemälde und Büsten bekannter Künstler. Neben dir ist ein kleiner Raum in welcher du eine Statue erkennen kannst.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "28": {
-      "name": "Test2",
-      "description": "",
+      "name": "Raum mit Statue",
+      "description": "Du trittst in den kleinen Raum und entfernst mit deiner Hand Staub von dem Namensschild. Auf dem Schild steht 'Kaiser Friedrich I. auch genannt Barbarossa'.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "29": {
-      "name": "Test2",
-      "description": "",
+      "name": "Galerie",
+      "description": "Du gehst weiter durch die Galerie und bestaunst die Kunstwerke. Dir fallen noch zwei weitere kleinere Räume mit Statuen neben dir auf.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "30": {
-      "name": "Test2",
-      "description": "",
+      "name": "Raum mit Statue",
+      "description": "Du trittst in den kleinen Raum und entfernst mit deiner Hand Staub von dem Namensschild. Auf dem Schild steht 'Kaiser Karl auch bekannt als der Große'.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "31": {
-      "name": "Test2",
-      "description": "",
+      "name": "Raum mit Statue",
+      "description": "Du trittst in den kleinen Raum und entfernst mit deiner Hand Staub von dem Namensschild. Auf dem Schild steht 'König Wilhelm I. auch genannt der Eroberer'.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "32": {
-      "name": "Test2",
-      "description": "",
+      "name": "Ausgang der Galerie",
+      "description": "Du gehst ans Ende der Galerie und probierst die Tür zu öffnen. Die Tür ist verschlossen. \n\rDu hörst hinter dir ein bekanntest Räuspern und bist nicht überrascht, als die seltsam aussehende Katze auf dich zukommt und sich demonstativ vor die Tür setzt.",
       "conditions": [],
-      "npcs": []
+      "npc": ["Seltsame Katze"]
     },
     "33": {
-      "name": "Test2",
-      "description": "",
+      "name": "Gang",
+      "description": "Du betrittst durch die Tür einen weiteren Gang der dich zu einer Kreuzung mit drei Türen führt.",
       "conditions": [],
-      "npcs": []
+      "npc": []
     },
     "34": {
-      "name": "Test2",
-      "description": "",
+      "name": "Kreuzung",
+      "description": "An der Kreuzung angekommen fällt dein Blick direkt auf ein Stück Pergament. Auf diesem steht 'Beachte, dass nur EINE Tür die Wahrheit spricht. Löse das Rätsel und tritt hindurch'\n\rDu schaust dir die Türen an.\n\rTür 1: 'Ich bin es nicht'\n\nTür 2: 'Es ist die 3'\n\nTür 3: 'Die 2 lügt!'",
       "conditions": [],
-      "npcs": []
+      "npc": []
+    },
+    "35": {
+      "name": "Tür 1",
+      "description": "Du durchschreitest die Tür und bist dir sicher, die richtige Entscheidung getroffen zu haben.",
+      "conditions": [],
+      "npc": []
+    },
+    "36": {
+      "name": "Tür 2",
+      "description": "Du durchschreitest die Tür und bist dir sicher, die richtige Entscheidung getroffen zu haben. Du siehst neben dir eine Bewegung und drehst dich um. Ein freundlich aussehender Mann kommt auf dich zu.",
+      "conditions": [],
+      "npc": ["Freundlicher Mann"]
+    },
+    "37": {
+      "name": "Tür 3",
+      "description": "Du durchschreitest die Tür und bist dir sicher, die richtige Entscheidung getroffen zu haben. Du siehst neben dir eine Bewegung und drehst dich um. Eine freundlich aussehende Frau kommt auf dich zu.",
+      "conditions": [],
+      "npc": ["Freundliche Frau"]
     }
   }
 }
