@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".HomeActivities.LostScreen">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,7 +35,6 @@
             android:paddingBottom="20px"
 
             android:gravity="center"
-            android:textSize="50"
             android:text="Du hast GEWONNEN!"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +54,6 @@
         android:background="@drawable/rounded_corners_button"
         android:elegantTextHeight="false"
         android:fontFamily="sans-serif"
-        android:onClick="goMainScreen"
         android:text="Fortsetzen"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="@color/white"
