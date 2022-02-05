@@ -1,7 +1,10 @@
 package com.Text.Adventure.Game;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Intent;
 
+import com.Text.Adventure.HomeActivities.HomeScreen;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
@@ -11,9 +14,12 @@ public class Player {
     private String name;
     private int health;
 
+    private boolean alive;
+
     public Player(String name) {
         this.name = name;
         this.health = 100;
+        this.alive = true;
     }
 
     public void takeDamage(int amount) {
@@ -33,7 +39,12 @@ public class Player {
     }
 
     public void die() {
+        this.alive = false;
         this.health = 0;
+    }
+
+    public boolean isAlive() {
+        return alive;
     }
 
     public String getName() {

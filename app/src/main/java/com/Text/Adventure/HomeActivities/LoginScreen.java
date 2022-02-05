@@ -40,6 +40,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
     private SignInButton signInButton;
     private Button signOutButton;
+    private Button startButton;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -61,8 +62,11 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         signOutButton = findViewById(R.id.button_logout);
         signOutButton.setOnClickListener(this);
 
+        startButton = findViewById(R.id.buttonStart);
+
         signOutButton.setVisibility(View.INVISIBLE);
         signInButton.setVisibility(View.INVISIBLE);
+        startButton.setVisibility(View.INVISIBLE);
 
         findViewById(R.id.button_login).setOnClickListener(this);
 
@@ -70,12 +74,14 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     }
 
     private void updateUI() {
-        if (GoogleActiveAccount.getAccount() != null) {
+        if (GoogleActiveAccount.getAccount() != null && FirebaseFunctions.getAccount() != null) {
             signOutButton.setVisibility(View.VISIBLE);
             signInButton.setVisibility(View.INVISIBLE);
+            startButton.setVisibility(View.VISIBLE);
         } else {
             signInButton.setVisibility(View.VISIBLE);
             signOutButton.setVisibility(View.INVISIBLE);
+            startButton.setVisibility(View.VISIBLE);
         }
     }
 
@@ -151,7 +157,6 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                 })
                 .addOnFailureListener(this, e -> {
                         Toast.makeText(LoginScreen.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginScreen.this, LoginScreen.class));
                     }
                 );
     }

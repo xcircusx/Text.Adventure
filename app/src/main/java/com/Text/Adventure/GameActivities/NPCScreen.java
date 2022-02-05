@@ -3,6 +3,7 @@ package com.Text.Adventure.GameActivities;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.opengl.Visibility;
 import android.os.Build;
 import android.os.Bundle;
@@ -121,6 +122,10 @@ public class NPCScreen extends AppCompatActivity {
             if(!trigger.isExecuted()) {
                 trigger.execute(player);
             }
+        }
+        if (player.isAlive()) {
+            //Intent intent = new Intent();
+            //startActivity(intent);
         }
     }
 

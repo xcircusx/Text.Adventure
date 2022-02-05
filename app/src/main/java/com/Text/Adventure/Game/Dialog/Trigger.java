@@ -1,5 +1,6 @@
 package com.Text.Adventure.Game.Dialog;
 
+import com.Text.Adventure.Game.LoadMap;
 import com.Text.Adventure.Game.Player;
 
 import org.apache.commons.lang3.ArrayUtils;
@@ -33,9 +34,16 @@ public class Trigger {
             case "damage_player":
                 player.takeDamage(Integer.valueOf(args[0]));
                 break;
-
             case "heal_player":
                 player.takeHeal(Integer.valueOf(args[0]));
+                break;
+            case "kill_player":
+                player.die();
+                break;
+            case "open_path":
+                for (String direction : args) {
+                    LoadMap.setNumberInDirection(Integer.parseInt(direction), -1);
+                }
                 break;
         }
         this.executed = true;

@@ -38,7 +38,7 @@ public class HomeScreen extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
 
-        player = new Player("player");
+        player = new Player("Spieler");
         saveButton = findViewById(R.id.textView_survived);
         loadButton = findViewById(R.id.textView_dead);
         saveButton.setOnClickListener(view -> saveGame());
