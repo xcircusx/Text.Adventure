@@ -72,7 +72,6 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
         updateUI();
     }
-
     private void updateUI() {
         if (GoogleActiveAccount.getAccount() != null && FirebaseFunctions.getAccount() != null) {
             signOutButton.setVisibility(View.VISIBLE);

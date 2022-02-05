@@ -61,6 +61,12 @@ public class MainScreen extends AppCompatActivity {
         setButtonNPCText();
         changeButtonAvailability();
     }
+     @Override
+     public void onResume() {
+         super.onResume();
+         this.changeButtonAvailability();
+         this.buttonTextChanger();
+     }
 
     public void openNpcScreen(View view) {
         Intent npcScreen = new Intent(this, NPCScreen.class);
@@ -122,6 +128,26 @@ public class MainScreen extends AppCompatActivity {
     }
 
     private void changeButtonAvailability(){
+        if (LoadMap.northAvailable()) {
+            buttonNorth.setVisibility(View.VISIBLE);
+        } else {
+            buttonNorth.setVisibility(View.INVISIBLE);
+        }
+        if (LoadMap.eastAvailable()) {
+            buttonEast.setVisibility(View.VISIBLE);
+        } else {
+            buttonEast.setVisibility(View.INVISIBLE);
+        }
+        if (LoadMap.southAvailable()) {
+            buttonSouth.setVisibility(View.VISIBLE);
+        } else {
+            buttonSouth.setVisibility(View.INVISIBLE);
+        }
+        if (LoadMap.westAvailable()) {
+            buttonWest.setVisibility(View.VISIBLE);
+        } else {
+            buttonWest.setVisibility(View.INVISIBLE);
+        }
         buttonNorth.setClickable(LoadMap.northAvailable());
         buttonEast.setClickable(LoadMap.eastAvailable());
         buttonSouth.setClickable(LoadMap.southAvailable());
