@@ -2,6 +2,7 @@ package com.Text.Adventure.Game;
 
 import com.google.gson.Gson;
 
+import java.util.Base64;
 import java.util.HashMap;
 
 public class Savestate {
@@ -9,6 +10,8 @@ public class Savestate {
     private String mapSave;
     private String playerSave;
     private String npcSave;
+
+    private String encoded;
 
     private HashMap<String, String> save;
 
@@ -24,20 +27,23 @@ public class Savestate {
         save.put("npc", npcSave);
     }
 
-    public String encodeSave() {
-        String saveJson = new Gson().toJson(save);
-        return saveJson;
+    public static Savestate decodeSave(String encodedSave) {
+        byte[] decodedBytes = Base64.getDecoder().decode(encodedSave);
+        String jsonSave = new String(decodedBytes);
+        HashMap<String, String> save = new Gson().fromJson(jsonSave, HashMap.class);
+        return new Savestate(save.get("mapSave"), save.get("playerSave"), save.get("npcSave"));
     }
 
-    public HashMap<String, String> getSave() {
-        return save;
+    public void encodeSave() {
+        String saveJson = new Gson().toJson(this);
+        byte[] encodedBytes = Base64.getEncoder().encode(saveJson.getBytes());
+        this.encoded = new String(encodedBytes);
     }
 
-    public static Savestate loadFromJson(String json) {
-        HashMap<String, String> save = new Gson().fromJson(json, HashMap.class);
-        return new Savestate(save.get("map"), save.get("player"), save.get("npc"));
+    public String getEncoded() {
+        this.encodeSave();
+        return encoded;
     }
-
     public String getPlayerSave() {
         return this.save.get("player");
     }

@@ -84,7 +84,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         GoogleActiveAccount.setAccount(account);
-        if (GoogleActiveAccount.getAccount() != null && FirebaseFunctions.getAccount() != null) {
+       if (GoogleActiveAccount.getAccount() != null && FirebaseFunctions.getAccount() == null) {
             firebaseAuthWithGoogle(GoogleActiveAccount.getAccount());
         }
         updateUI();
@@ -117,7 +117,6 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
-        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             GoogleActiveAccount.setAccount(result.getSignInAccount());
             firebaseAuthWithGoogle(GoogleActiveAccount.getAccount());
@@ -130,18 +129,14 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
-        updateUI();
     }
 
     private void signOut() {
         mAuth.signOut();
         FirebaseFunctions.setAccount(null);
-        mGoogleSignInClient.signOut().addOnCompleteListener(this, new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                GoogleActiveAccount.setAccount(null);
-                updateUI();
-            }
+        mGoogleSignInClient.signOut().addOnSuccessListener(result -> {
+            GoogleActiveAccount.setAccount(null);
+            updateUI();
         });
     }
 
@@ -151,13 +146,14 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                 .addOnSuccessListener(this, authResult -> {
                     FirebaseFunctions.setAccount(authResult.getUser());
                     FirebaseFunctions.getAppUser();
+                    startActivity(new Intent(LoginScreen.this, LoginScreen.class));
                     finish();
                 })
                 .addOnFailureListener(this, e -> {
                         Toast.makeText(LoginScreen.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginScreen.this, LoginScreen.class));
                     }
                 );
-        startActivity(new Intent(LoginScreen.this, LoginScreen.class));
     }
 
     public void goHomeScreen(View view) {

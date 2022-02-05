@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Text.Adventure.Firebase.FirebaseFunctions;
 import com.Text.Adventure.Game.LoadMap;
@@ -54,13 +55,15 @@ public class HomeScreen extends AppCompatActivity  {
     }
 
     private void loadGame() {
-        System.out.println(FirebaseFunctions.getCurrentUser().getSavestate());;
-        byte[] decodedBytes = Base64.getDecoder().decode(FirebaseFunctions.getCurrentUser().getSavestate());
-        savestate = Savestate.loadFromJson(new String(decodedBytes));
-        player = Player.fromJson(savestate.getPlayerSave());
-        System.out.println(savestate.getNpcSave());
-        LoadNPC.fromJson(savestate.getNpcSave());
-        LoadMap.fromJson(savestate.getMapSave());
+        String encodedSave = FirebaseFunctions.getCurrentUser().getSavestate();
+        if (encodedSave.equals("")) {
+            Toast.makeText(this, "Kein Speicherstand vorhanden!", Toast.LENGTH_SHORT).show();
+        } else {
+            savestate = Savestate.decodeSave(encodedSave);
+            player = Player.fromJson(savestate.getPlayerSave());
+            LoadNPC.fromJson(savestate.getNpcSave());
+            LoadMap.fromJson(savestate.getMapSave());
+        }
     }
 
     private void saveGame() {
@@ -68,8 +71,6 @@ public class HomeScreen extends AppCompatActivity  {
         npcSave = LoadNPC.toJson();
         mapSave = LoadMap.toJson();
         savestate = new Savestate(mapSave, playerSave, npcSave);
-        encodedSave = savestate.encodeSave();
-        byte[] encodedBytes = Base64.getEncoder().encode(encodedSave.getBytes());
-        FirebaseFunctions.setUserSaveState(new String(encodedBytes));
+        FirebaseFunctions.setUserSaveState(savestate.getEncoded());
     }
 }

@@ -49,20 +49,17 @@ public class FirebaseFunctions {
         mFirestore = FirebaseFirestore.getInstance();
         getMap();
         getNPCs();
-        getAppUser();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static void getAppUser() {
-        mFirestore.collection("user").get().addOnSuccessListener(result -> {
-            result.getDocuments().forEach(documentSnapshot -> {
-                if (documentSnapshot.getId().equals(GoogleActiveAccount.getAccount().getEmail())) {
-                    registered = true;
-                    String mail = documentSnapshot.get("mail").toString();
-                    String savestate = documentSnapshot.get("savestate").toString();
-                    currentUser = new User(mail, savestate);
-                }
-            });
+        mFirestore.collection("user").document(account.getUid()).get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.getId().equals(account.getUid()) && documentSnapshot.getData() != null) {
+                registered = true;
+                String mail = documentSnapshot.get("mail").toString();
+                String savestate = documentSnapshot.get("savestate").toString();
+                currentUser = new User(account.getUid(), mail, savestate);
+            }
             if (!registered) {
                 registerUser();
             }
@@ -71,9 +68,10 @@ public class FirebaseFunctions {
 
     public static void registerUser() {
         String mail = GoogleActiveAccount.getAccount().getEmail();
-        User userObject = new User(mail, "{}");
+        User userObject = new User(account.getUid(), mail, "");
+        currentUser = userObject;
         assert mail != null;
-        mFirestore.collection("user").document(mail).set(userObject);
+        mFirestore.collection("user").document(account.getUid()).set(userObject);
     }
 
     public static void setAccount(FirebaseUser account1) {
@@ -109,7 +107,8 @@ public class FirebaseFunctions {
     public static void setUserSaveState(String state) {
         HashMap<String, String> value = new HashMap<>();
         value.put("savestate", state);
-        mFirestore.collection("user").document(currentUser.getMail()).set(value, SetOptions.merge());
+        mFirestore.collection("user").document(account.getUid()).set(value, SetOptions.merge());
+        currentUser.setSavestate(state);
     }
 
     public static Task<DocumentSnapshot> getUserSaveState() {
@@ -118,9 +117,5 @@ public class FirebaseFunctions {
 
     public static User getCurrentUser() {
         return currentUser;
-    }
-
-    public static boolean isRegistered() {
-        return registered;
     }
 }

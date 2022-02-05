@@ -1,24 +1,30 @@
 package com.Text.Adventure.Firebase;
 
-import com.google.firebase.firestore.PropertyName;
-
 public class User {
 
+    private String uid;
     private String mail;
     private String savestate;
 
-    public User(String mail, String savestate) {
+    public User(String uid, String mail, String savestate) {
         this.mail = mail;
         this.savestate = savestate;
+        this.uid = uid;
     }
 
-    @PropertyName("mail")
+    public String getUid() {
+        return uid;
+    }
+
     public String getMail() {
         return mail;
     }
 
-    @PropertyName("savestate")
     public String getSavestate() {
         return savestate;
+    }
+
+    public void setSavestate(String savestate) {
+        this.savestate = savestate;
     }
 }
