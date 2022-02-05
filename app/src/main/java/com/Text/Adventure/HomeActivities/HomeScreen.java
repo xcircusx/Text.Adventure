@@ -16,8 +16,6 @@ import com.Text.Adventure.Game.Savestate;
 import com.Text.Adventure.GameActivities.MainScreen;
 import com.Text.Adventure.R;
 
-import java.util.Base64;
-
 
 public class HomeScreen extends AppCompatActivity  {
 

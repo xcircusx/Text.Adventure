@@ -40,7 +40,6 @@ public class NPCScreen extends AppCompatActivity {
 
     private Button[] optionButtons;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +85,6 @@ public class NPCScreen extends AppCompatActivity {
         buttonRoutine();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     private void buttonRoutine() {
         buttonOption1.setVisibility(View.INVISIBLE);
         buttonOption2.setVisibility(View.INVISIBLE);
@@ -105,7 +103,6 @@ public class NPCScreen extends AppCompatActivity {
         });
 
         appendText(npc.getStates().get(npc.getCurrentStateId()).getNpc_text(), true);
-
     }
 
     private void appendText(String text, boolean NPC) {
@@ -124,12 +121,11 @@ public class NPCScreen extends AppCompatActivity {
             }
         }
         if (player.isAlive()) {
-            //Intent intent = new Intent();
-            //startActivity(intent);
+            // Intent intent = new Intent();
+            // startActivity(intent);
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     private void chooseOption(int option, Player player) {
         State currentState = npc.getStates().get(npc.getCurrentStateId());
         Option chosenOption = currentState.getOptions().get(String.valueOf(option));
@@ -158,4 +154,5 @@ public class NPCScreen extends AppCompatActivity {
 
         npc.setDialog(textView.getText());
     }
+
 }
