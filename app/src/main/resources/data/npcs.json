@@ -102,27 +102,25 @@
   "Müder Wächter": {
     "states": {
       "0": {
-        "npc_text": "Wie kann ich Helfen?",
+        "npc_text": "Hallo Fremder. Wie bist du hier reingekommen?",
         "trigger": [],
         "options": {
           "0": {
-            "text": "Kannst du mir mit Leben helfen?",
-            "conditions": [
-              "hp_below::50"
-            ],
-            "trigger": [],
-            "conditionsTrue": "1",
-            "conditionsFalse": "2"
-          },
-          "1": {
-            "text": "Nein danke mit ist nicht mehr zu Helfen.",
+            "text": "Ich bin durch den Boden gestürzt und hier gelandet.",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "informationen",
+            "conditionsTrue": "1",
+            "conditionsFalse": ""
+          },
+          "1": {
+            "text": "Hast du etwas zum Essen?",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "7",
             "conditionsFalse": "0"
           },
           "2": {
-            "text": "Nach Informationen Fragen",
+            "text": "Hast du einen Tipp für mich?",
             "conditions": [],
             "trigger": [],
             "conditionsTrue": "informationen",
@@ -131,69 +129,130 @@
         }
       },
       "1": {
-        "npc_text": "Hier ist ein Apfel für dich!",
-        "trigger": [
-          "heal_player::50"
-        ],
+        "npc_text": "Diese Mauern sind schon jahrhundertealt. Anscheindend fangen sie an einzustürzen.",
+        "trigger": [],
         "options": {
           "0": {
-            "text": "Danke!",
+            "text": "Das hört sich nicht gut an!",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
+            "conditionsTrue": "2",
+            "conditionsFalse": ""
           }
         }
       },
       "2": {
-        "npc_text": "Du gieriger Hurensohn!",
+        "npc_text": "Wie kann ich dir weiterhelfen?",
         "conditions": [],
-        "trigger": [
-          "damage_player::20"
-        ],
+        "trigger": [],
         "options": {
           "0": {
-            "text": "Mal nicht so aggressiv Rüdiger!",
+            "text": "Was machst du hier unten?",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "2"
+            "conditionsTrue": "3",
+            "conditionsFalse": ""
+          },
+          "1": {
+            "text": "Wieso bist du hier unter der Erde?",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "4",
+            "conditionsFalse": ""
+          },
+          "2": {
+            "text": "Was ist deine Geschichte?",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "5",
+            "conditionsFalse": ""
           }
-        },
-        "conditionsTrue": "",
-        "conditionsFalse": "",
-        "next": 1
+        }
       },
-      "informationen": {
-        "npc_text": "Was für Informationen brauchst du?",
+      "3": {
+        "npc_text": "Ich bewache die Gefangenen hier unten, obwohl ich selber auch gefangen bin...\n\r* Der Wächter seufzt niedergeschlagen*",
         "trigger": [],
         "options": {
           "1": {
-            "text": "Wo kommst du denn her?",
+            "text": "Tut mir leid zu hören.",
             "trigger": [],
             "conditions": [],
-            "conditionsTrue": "4",
-            "conditionsFalse": "0"
-          },
-          "2": {
-            "text": "Was machst du Hier?",
-            "trigger": [],
-            "conditions": [],
-            "conditionsTrue": "4",
+            "conditionsTrue": "2",
             "conditionsFalse": "0"
           }
         }
       },
       "4": {
-        "npc_text": "Ich komme aus Koblenz",
+        "npc_text": "Ich wurde vor vielen Jahren verflucht nie wieder das Tages nicht sehen zu können.",
         "trigger": [],
         "options": {
           "1": {
-            "text": "Sehr interressant!",
+            "text": "Ein Leben nur unter der Erde will ich mir gar nicht vorstellen.",
             "trigger": [],
             "conditions": [],
-            "conditionsTrue": "informationen",
+            "conditionsTrue": "2",
             "conditionsFalse": "0"
+          }
+        }
+      },
+      "5": {
+        "npc_text": "Vor vielen Jahren wurde ich verflucht. Einst war ich ein junger Mann. Ich war ein Polizist, ein guter, doch einen Fall konnte ich nicht lösen. Die Mutter des Opfers verfluchte mich und die Täter auf dem Sterbebett, weswegen ich für immer hier unten die Schuldigen bewachen muss.",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Es war nicht deine Schuld.",
+            "trigger": [],
+            "conditions": [],
+            "conditionsTrue": "2",
+            "conditionsFalse": "0"
+          },
+          "2": {
+            "text": "Was ist mit dem Kind passiert?",
+            "trigger": [],
+            "conditions": [],
+            "conditionsTrue": "6",
+            "conditionsFalse": "0"
+          }
+        }
+      },
+      "6": {
+        "npc_text": "...\n\r*Die Wache schaut dich nur traurig an und sagt nichts mehr*",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Ich habe noch Fragen an dich.",
+            "trigger": [],
+            "conditions": [],
+            "conditionsTrue": "2",
+            "conditionsFalse": "0"
+          }
+        }
+      },
+      "7": {
+        "npc_text": "Hier hast du einen Apfel.",
+        "trigger": [
+          "heal_player::20"
+        ],
+        "options": {
+          "1": {
+            "text": "Vielen Dank!\n\r*du isst den Apfel unf fühlst dich direkt wieder besser*",
+            "trigger": [],
+            "conditions": [],
+            "conditionsTrue": "0",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "8": {
+        "npc_text": "Halte dich vom Gauner fern! Er ist Schuld wieso ich hier festsitze!",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Ich werde mich von ihm fernhalten.",
+            "trigger": [],
+            "conditions": [],
+            "conditionsTrue": "0",
+            "conditionsFalse": ""
           }
         }
       }
@@ -202,48 +261,24 @@
   "Gauner": {
     "states": {
       "0": {
-        "npc_text": "Wie kann ich Helfen?",
+        "npc_text": "Wieso störst du mich?\n\r*Der Gauner sticht mit den Nagel auf dich ein und trifft dich am Arm*",
         "trigger": [],
         "options": {
           "0": {
-            "text": "Kannst du mir mit Leben helfen?",
+            "text": "Was soll das denn!?",
             "conditions": [
-              "hp_below::50"
+              "damage_player::50"
             ],
             "trigger": [],
             "conditionsTrue": "1",
-            "conditionsFalse": "2"
-          },
-          "1": {
-            "text": "Nein danke mit ist nicht mehr zu Helfen.",
-            "conditions": [],
-            "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
-          },
-          "2": {
-            "text": "Nach Informationen Fragen",
-            "conditions": [],
-            "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
+            "conditionsFalse": ""
           }
         }
       },
       "1": {
-        "npc_text": "Hier ist ein Apfel für dich!",
-        "trigger": [
-          "heal_player::50"
-        ],
-        "options": {
-          "0": {
-            "text": "Danke!",
-            "conditions": [],
-            "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
-          }
-        }
+        "npc_text": "HAHAHAHA",
+        "trigger": [],
+        "options": {}
       }
     }
   },
@@ -298,46 +333,114 @@
   "Gollum": {
     "states": {
       "0": {
-        "npc_text": "Wie kann ich Helfen?",
+        "npc_text": "Was will es mein Schatz?",
         "trigger": [],
         "options": {
           "0": {
-            "text": "Kannst du mir mit Leben helfen?",
-            "conditions": [
-              "hp_below::50"
-            ],
+            "text": "Ich suche einen Ausgang.",
+            "conditions": [],
             "trigger": [],
             "conditionsTrue": "1",
-            "conditionsFalse": "2"
+            "conditionsFalse": ""
           },
           "1": {
-            "text": "Nein danke mit ist nicht mehr zu Helfen.",
+            "text": "Wer bist du?",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
-          },
-          "2": {
-            "text": "Nach Informationen Fragen",
-            "conditions": [],
-            "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
+            "conditionsTrue": "6",
+            "conditionsFalse": ""
           }
         }
       },
       "1": {
-        "npc_text": "Hier ist ein Apfel für dich!",
-        "trigger": [
-          "heal_player::50"
-        ],
+        "npc_text": "Wir wissen wo der Ausgang ist, wir wissen es! Schweig! Es soll ein Rätsel mit uns spielen! Wenn es gewinnt dann zeigen wir es den Ausgang. Wenn es verliert... dann fressen wir es auf!",
+        "trigger": [],
         "options": {
           "0": {
-            "text": "Danke!",
+            "text": "Okay, lass uns spielen!",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
+            "conditionsTrue": "2",
+            "conditionsFalse": ""
+          },
+          "1": {
+            "text": "Nein, ich werde selber einen Ausgang finden!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "5",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "2": {
+        "npc_text": "Zweiunddreißig Schimmel in einem roten Schloss. Erst mahlen sie, dann stampfen sie und dann stehen sie regungslos. Was ist es?\n\r*das Wesen reißt die Augen auf und schaut erfreut, doch dann ändert sich der Gesichtsausdruck wieder*\n\rGollum: Wir wissen es mein Schatz, wir wissen es! Schweig! Es soll antworten!",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Eichhörnchen!",
+            "conditions": [],
+            "trigger": [
+              "damage_player::50"
+            ],
+            "conditionsTrue": "3",
+            "conditionsFalse": ""
+          },
+          "1": {
+            "text": "Zähne!",
+            "conditions": [],
+            "trigger": [
+            ],
+            "conditionsTrue": "4",
+            "conditionsFalse": ""
+          },
+          "2": {
+            "text": "Windmühle!",
+            "conditions": [],
+            "trigger": [
+              "damage_player::50"
+            ],
+            "conditionsTrue": "3",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "3": {
+        "npc_text": "AH!\n\r*das Wesen stürzt sich auf dich und beißt dir das linke Ohr ab. Du läufst schreiend weg. Auf dem Weg findest du einen unscheinbaren Ring und packst ihn ein*",
+        "trigger": [
+          "open_path::4"
+        ],
+        "options": {}
+      },
+      "4": {
+        "npc_text": "AH!\n\r*das Wesen stürzt sich auf dich und  du läufst schreiend weg. Auf dem Weg findest du einen unscheinbaren Ring und packst ihn ein*",
+        "trigger": [
+          "open_path::4"
+        ],
+        "options": {}
+      },
+      "5": {
+        "npc_text": "Ist es sich da sicher mein Schatz?\n\r*das Wesen kommt bedrohlich auf dich zu*",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Okay, lass uns spielen!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "2",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "6": {
+        "npc_text": "Gollum! Gollum!",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Mmh, interessant.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "0",
+            "conditionsFalse": ""
           }
         }
       }
@@ -346,27 +449,18 @@
   "Seltsame Katze": {
     "states": {
       "0": {
-        "npc_text": "Wie kann ich Helfen?",
+        "npc_text": "Miau. Du möchtest also durch diese Tür?",
         "trigger": [],
         "options": {
           "0": {
-            "text": "Kannst du mir mit Leben helfen?",
-            "conditions": [
-              "hp_below::50"
-            ],
-            "trigger": [],
-            "conditionsTrue": "1",
-            "conditionsFalse": "2"
-          },
-          "1": {
-            "text": "Nein danke mit ist nicht mehr zu Helfen.",
+            "text": "Ja, kannst du mich bitte durchlassen?",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
+            "conditionsTrue": "1",
+            "conditionsFalse": ""
           },
-          "2": {
-            "text": "Nach Informationen Fragen",
+          "1": {
+            "text": "Wieso kannst du reden?",
             "conditions": [],
             "trigger": [],
             "conditionsTrue": "informationen",
@@ -375,13 +469,11 @@
         }
       },
       "1": {
-        "npc_text": "Hier ist ein Apfel für dich!",
-        "trigger": [
-          "heal_player::50"
-        ],
+        "npc_text": "Zuerst musst du ein Rätsel lösen!",
+        "trigger": [],
         "options": {
           "0": {
-            "text": "Danke!",
+            "text": "Okay!",
             "conditions": [],
             "trigger": [],
             "conditionsTrue": "informationen",

@@ -36,7 +36,7 @@
 
     <Button
         android:id="@+id/button_logout"
-        style="@style/Widget.AppCompat.Button"
+
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="125dp"
@@ -47,7 +47,7 @@
         android:elegantTextHeight="false"
         android:fontFamily="sans-serif"
         android:text="LOGOUT"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
         android:textColor="@color/white"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +75,7 @@
 
     <Button
         android:id="@+id/buttonStart"
-        style="@style/Widget.AppCompat.Button"
+
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_marginStart="50dp"
@@ -87,7 +87,7 @@
         android:fontFamily="sans-serif"
         android:onClick="goHomeScreen"
         android:text="STARTEN"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+
         android:textColor="@color/white"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/button_login"

@@ -48,6 +48,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.login_screen);
         mAuth = FirebaseAuth.getInstance();
 
+        //Verbindung mit Google-Account
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("188575906459-dvqjcrapcegqqqh85379dbgrakmnuh96.apps.googleusercontent.com")
                 .requestEmail()
@@ -83,6 +84,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    //schaut ob der Benutzer schon mal angemeldet war
     @Override
     protected void onStart() {
         super.onStart();
