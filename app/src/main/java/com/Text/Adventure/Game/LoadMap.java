@@ -11,21 +11,21 @@ import java.util.HashMap;
 public class LoadMap {
 
     private static String map;
+    private static JSONObject mapJson;
 
     static {
         map = FirebaseFunctions.map;
+        mapJson = new JSONObject(map);
     }
 
     public static void init() {
         map = FirebaseFunctions.map;
         mapJson = new JSONObject(map);
-        currentPosition = new int[]{mapJson.getJSONObject("start").getInt("x"), mapJson.getJSONObject("start").getInt("y")};
+        currentPosition = new int[]{mapJson.getJSONObject("anfang").getInt("x"), mapJson.getJSONObject("anfang").getInt("y")};
         loadedRooms = new HashMap<>();
     }
 
-    private static JSONObject mapJson = new JSONObject(map);
-
-    private static int[] currentPosition = new int[]{mapJson.getJSONObject("start").getInt("x"), mapJson.getJSONObject("start").getInt("y")};
+    private static int[] currentPosition = new int[]{mapJson.getJSONObject("anfang").getInt("x"), mapJson.getJSONObject("anfang").getInt("y")};
     private static HashMap<Integer, Room> loadedRooms = new HashMap<>();
 
     private static int getNumberInMapBinding(int x, int y) {
@@ -160,11 +160,6 @@ public class LoadMap {
         }
         for (Condition condition : getRoom(newPosition[0], newPosition[1]).getConditions()) {
             if (!condition.isCorrect(player)) {
-                if (getRoom(newPosition[0], newPosition[1]).getName().equals("Nachtclub")) {
-                    returnArray[0] = "False";
-                    returnArray[1] = "Bitte rede zuerst mit dem Türsteher!";
-                    return returnArray;
-                }
                 returnArray[0] = "False";
                 returnArray[1] = "";
                 return returnArray;
@@ -208,11 +203,11 @@ public class LoadMap {
     }
 
     public static String toJson() {
+        System.out.println(mapJson);
         return mapJson.toString();
     }
 
     public static void fromJson(String json)  {
-        init();
         mapJson = new JSONObject(json);
         System.out.println(mapJson);
     }
