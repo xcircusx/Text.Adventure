@@ -51,7 +51,6 @@ public class FirebaseFunctions {
         getNPCs();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public static void getAppUser() {
         mFirestore.collection("user").document(account.getUid()).get().addOnSuccessListener(documentSnapshot -> {
             if (documentSnapshot.getId().equals(account.getUid()) && documentSnapshot.getData() != null) {
@@ -68,10 +67,8 @@ public class FirebaseFunctions {
 
     public static void registerUser() {
         String mail = GoogleActiveAccount.getAccount().getEmail();
-        User userObject = new User(account.getUid(), mail, "");
-        currentUser = userObject;
-        assert mail != null;
-        mFirestore.collection("user").document(account.getUid()).set(userObject);
+        currentUser = new User(account.getUid(), mail, "");
+        mFirestore.collection("user").document(account.getUid()).set(currentUser);
     }
 
     public static void setAccount(FirebaseUser account1) {
@@ -84,7 +81,6 @@ public class FirebaseFunctions {
 
     public static void getMap() {
         StorageReference gsReference = mStorage.getReferenceFromUrl("gs://text-adventure-b9681.appspot.com/map.json");
-
         gsReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
@@ -95,7 +91,6 @@ public class FirebaseFunctions {
 
     public static void getNPCs() {
         StorageReference gsReference = mStorage.getReferenceFromUrl("gs://text-adventure-b9681.appspot.com/npcs.json");
-
         gsReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {

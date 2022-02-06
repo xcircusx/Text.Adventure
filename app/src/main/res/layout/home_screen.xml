@@ -31,7 +31,7 @@
         tools:visibility="visible" />
 
     <TextView
-        android:id="@+id/textView_dead"
+        android:id="@+id/textviewladen"
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:layout_marginStart="24dp"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView_survived"
+        android:id="@+id/textviewsave"
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:layout_marginStart="24dp"
@@ -74,7 +74,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_dead" />
+        app:layout_constraintTop_toBottomOf="@+id/textviewladen" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

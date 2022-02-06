@@ -16,10 +16,17 @@ public class LoadMap {
         map = FirebaseFunctions.map;
     }
 
+    public static void init() {
+        map = FirebaseFunctions.map;
+        mapJson = new JSONObject(map);
+        currentPosition = new int[]{mapJson.getJSONObject("start").getInt("x"), mapJson.getJSONObject("start").getInt("y")};
+        loadedRooms = new HashMap<>();
+    }
+
     private static JSONObject mapJson = new JSONObject(map);
 
     private static int[] currentPosition = new int[]{mapJson.getJSONObject("start").getInt("x"), mapJson.getJSONObject("start").getInt("y")};
-    private static final HashMap<Integer, Room> loadedRooms = new HashMap<>();
+    private static HashMap<Integer, Room> loadedRooms = new HashMap<>();
 
     private static int getNumberInMapBinding(int x, int y) {
         return mapJson.getJSONArray("roomMappings").getJSONArray(y).getInt(x);
@@ -205,6 +212,8 @@ public class LoadMap {
     }
 
     public static void fromJson(String json)  {
+        init();
         mapJson = new JSONObject(json);
+        System.out.println(mapJson);
     }
 }

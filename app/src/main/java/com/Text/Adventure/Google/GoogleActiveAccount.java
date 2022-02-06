@@ -6,7 +6,6 @@ public class GoogleActiveAccount {
 
     private static GoogleSignInAccount account;
 
-
     public static void setAccount(GoogleSignInAccount account1) {
         account = account1;
     }

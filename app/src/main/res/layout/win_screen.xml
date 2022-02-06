@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivities.WinScreen">
+    tools:context=".HomeActivities.LostScreen">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,9 +17,8 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="83dp">
 
-
         <TextView
-            android:id="@+id/textView_dead"
+            android:id="@+id/textviewWon"
             android:layout_width="350dp"
             android:layout_height="150dp"
             android:layout_marginStart="24dp"
@@ -34,7 +34,7 @@
             android:paddingBottom="20px"
 
             android:gravity="center"
-            android:text="Du bist GESTORBEN!"
+            android:text="Du hast GEWONNEN!"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.473"
@@ -45,7 +45,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button_play2"
+        android:id="@+id/button_continue_won"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="300dp"
         android:layout_height="100dp"

@@ -20,6 +20,8 @@ import com.Text.Adventure.Game.LoadMap;
 import com.Text.Adventure.Game.NPC;
 import com.Text.Adventure.Game.Player;
 import com.Text.Adventure.HomeActivities.HomeScreen;
+import com.Text.Adventure.HomeActivities.LostScreen;
+import com.Text.Adventure.HomeActivities.WinScreen;
 import com.Text.Adventure.R;
 
 import java.util.ArrayList;
@@ -120,9 +122,10 @@ public class NPCScreen extends AppCompatActivity {
                 trigger.execute(player);
             }
         }
-        if (player.isAlive()) {
-            // Intent intent = new Intent();
-            // startActivity(intent);
+        System.out.println(player.getHealth());
+        if (!player.isAlive()) {
+            Intent intent = new Intent(this, LostScreen.class);
+            startActivity(intent);
         }
     }
 

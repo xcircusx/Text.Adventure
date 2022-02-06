@@ -32,7 +32,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginScreen extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "SingInActivity";
     private static final int RC_SIGN_IN = 9001;
 
     private GoogleSignInClient mGoogleSignInClient;
@@ -89,7 +88,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         GoogleActiveAccount.setAccount(account);
-       if (GoogleActiveAccount.getAccount() != null && FirebaseFunctions.getAccount() == null) {
+        if (GoogleActiveAccount.getAccount() != null && FirebaseFunctions.getAccount() == null) {
             firebaseAuthWithGoogle(GoogleActiveAccount.getAccount());
         }
         updateUI();

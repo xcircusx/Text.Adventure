@@ -28,11 +28,11 @@
         <entry key="..\:/Users/mbeck/StudioProjects/Text.Adventure/app/src/main/res/layout/four_decisions_screen.xml" value="0.30128205128205127" />
         <entry key="..\:/Users/mbeck/StudioProjects/Text.Adventure/app/src/main/res/layout/home_screen.xml" value="0.22" />
         <entry key="..\:/Users/mbeck/StudioProjects/Text.Adventure/app/src/main/res/layout/login_screen.xml" value="0.30128205128205127" />
-        <entry key="..\:/Users/mbeck/StudioProjects/Text.Adventure/app/src/main/res/layout/lost_screen.xml" value="0.15555555555555556" />
+        <entry key="..\:/Users/mbeck/StudioProjects/Text.Adventure/app/src/main/res/layout/lost_screen.xml" value="0.33" />
         <entry key="..\:/Users/mbeck/StudioProjects/Text.Adventure/app/src/main/res/layout/main_screen.xml" value="0.45897435897435895" />
         <entry key="..\:/Users/mbeck/StudioProjects/Text.Adventure/app/src/main/res/layout/npc_screen.xml" value="0.30128205128205127" />
         <entry key="..\:/Users/mbeck/StudioProjects/Text.Adventure/app/src/main/res/layout/two_decisions_screen.xml" value="0.30128205128205127" />
-        <entry key="..\:/Users/mbeck/StudioProjects/Text.Adventure/app/src/main/res/layout/win_screen.xml" value="0.15555555555555556" />
+        <entry key="..\:/Users/mbeck/StudioProjects/Text.Adventure/app/src/main/res/layout/win_screen.xml" value="0.33" />
       </map>
     </option>
   </component>

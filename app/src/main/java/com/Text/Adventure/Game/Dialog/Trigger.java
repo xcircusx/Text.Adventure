@@ -45,6 +45,8 @@ public class Trigger {
                     LoadMap.setNumberInDirection(Integer.parseInt(direction), -1);
                 }
                 break;
+            case "win_game":
+                break;
         }
         this.executed = true;
     }

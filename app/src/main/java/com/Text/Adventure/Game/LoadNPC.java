@@ -15,9 +15,50 @@ public class LoadNPC {
 
     static String npcString = "";
 
-    private static final String PATH = "src/main/resources/actors/";
-
     private static HashMap<String, NPC> npcs = new HashMap<String, NPC>();
+
+    public static void init() {
+        npcString = FirebaseFunctions.npcs;
+
+        JSONObject npcsJson = new JSONObject(npcString);
+
+        for (String npc : npcsJson.keySet()) {
+            HashMap<String, State> states = new HashMap<>();
+            for (String state : npcsJson.getJSONObject(npc).getJSONObject("states").keySet()) {
+                JSONObject current_state = npcsJson.getJSONObject(npc).getJSONObject("states").getJSONObject(state);
+                String id = state;
+                String npc_text = current_state.getString("npc_text");
+                ArrayList<Trigger> stateTriggerList = new ArrayList<>();
+                for (Object trigger : current_state.getJSONArray("trigger"))
+                    stateTriggerList.add(new Trigger(String.valueOf(trigger)));
+
+                HashMap<String, Option> options = new HashMap<>();
+                for (String option : current_state.getJSONObject("options").keySet()) {
+                    JSONObject current_option = current_state.getJSONObject("options").getJSONObject(option);
+                    String text = current_option.getString("text");
+                    String conditionTrueNextState = current_option.getString("conditionsTrue");
+                    String conditionFalseNextState = current_option.getString("conditionsFalse");
+
+                    ArrayList<Trigger> optionTriggerList = new ArrayList<>();
+                    for (Object trigger : current_option.getJSONArray("trigger"))
+                        optionTriggerList.add(new Trigger(String.valueOf(trigger)));
+                    ArrayList<Condition> optionConditionList = new ArrayList<>();
+                    for (Object condition : current_option.getJSONArray("conditions"))
+                        optionConditionList.add(new Condition(String.valueOf(condition)));
+
+                    options.put(
+                            option,
+                            new Option(text, optionTriggerList, optionConditionList, conditionTrueNextState, conditionFalseNextState)
+                    );
+                }
+                states.put(
+                        state,
+                        new State(id, stateTriggerList, options, npc_text)
+                );
+            }
+            npcs.put(npc, new NPC(npc, states));
+        }
+    }
 
     static {
         npcString = FirebaseFunctions.npcs;

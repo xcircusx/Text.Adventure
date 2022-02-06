@@ -26,7 +26,6 @@ public class HomeScreen extends AppCompatActivity  {
     private static String mapSave;
 
     private Savestate savestate;
-    private String encodedSave;
 
     private TextView saveButton;
     private TextView loadButton;
@@ -37,8 +36,9 @@ public class HomeScreen extends AppCompatActivity  {
         setContentView(R.layout.home_screen);
 
         player = new Player("Spieler");
-        saveButton = findViewById(R.id.textView_survived);
-        loadButton = findViewById(R.id.textView_dead);
+
+        saveButton = findViewById(R.id.textviewsave);
+        loadButton = findViewById(R.id.textviewladen);
         saveButton.setOnClickListener(view -> saveGame());
         loadButton.setOnClickListener(view -> loadGame());
     }
