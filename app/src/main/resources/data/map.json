@@ -14,12 +14,12 @@
     [ 0 , 0  , 0  , 0  , 0  , 18 , 0  , 19 , 0  , 20 , 0  , 0  , 0],
     [ 0 , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  ,  1 , 0  , 0  , 0],
     [ 0 , 0  , 0  , 25 , -1 , 24 , -1 , 23 , -1 , 21 ,  1 , 22 , 0],
-    [ 0 , 0  , 0  , -1 , 0  , -1 , 0  , 0  , 0  , 0  , 0  , 0  , 0],
+    [ 0 , 0  , 0  ,  0 , 0  , -1 , 0  , 0  , 0  , 0  , 0  , 0  , 0],
     [ 0 , 28 , -1 , 27 , 0  , 26 , 0  , 0  , 0  , 0  , 0  , 0  , 0],
     [ 0 , 0  , 0  , -1 , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0],
     [ 0 , 30 , -1 , 29 , -1 , 31 , 0  , 35 , 0  , 0  , 0  , 0  , 0],
     [ 0 , 0  , 0  , -1 , 0  , 0  , 0  ,  1 , 0  , 0  , 0  , 0  , 0],
-    [ 0 , 0  , 0  , 32 , -1 , 33 , -1 , 34 ,  1 , 36 , 0  , 0  , 0],
+    [ 0 , 0  , 0  , 32 , 0  , 33 , -1 , 34 ,  1 , 36 , 0  , 0  , 0],
     [ 0 , 0  , 0  , 0  , 0  , 0  , 0  ,  1 , 0  , 0  , 0  , 0  , 0],
     [ 0 , 0  , 0  , 0  , 0  , 0  , 0  , 37 , 0  , 0  , 0  , 0  , 0],
     [ 0 , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0]
@@ -161,7 +161,7 @@
       "name": "Ausgang der Galerie",
       "description": "Du gehst ans Ende der Galerie und probierst die Tür zu öffnen. Die Tür ist verschlossen. \n\rDu hörst hinter dir ein bekanntest Räuspern und bist nicht überrascht, als die seltsam aussehende Katze auf dich zukommt und sich demonstativ vor die Tür setzt.",
       "conditions": [],
-      "npc": ["Türratsel"]
+      "npc": ["Türrätsel"]
     },
     "33": {
       "name": "Gang",

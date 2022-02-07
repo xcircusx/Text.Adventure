@@ -1,11 +1,8 @@
 package com.Text.Adventure.GameActivities;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.opengl.Visibility;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -21,9 +18,8 @@ import com.Text.Adventure.Game.NPC;
 import com.Text.Adventure.Game.Player;
 import com.Text.Adventure.HomeActivities.HomeScreen;
 import com.Text.Adventure.HomeActivities.LostScreen;
-import com.Text.Adventure.HomeActivities.WinScreen;
-import com.Text.Adventure.R;
 
+import com.Text.Adventure.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -122,7 +118,6 @@ public class NPCScreen extends AppCompatActivity {
                 trigger.execute(player);
             }
         }
-        System.out.println(player.getHealth());
         if (!player.isAlive()) {
             Intent intent = new Intent(this, LostScreen.class);
             startActivity(intent);
@@ -151,11 +146,14 @@ public class NPCScreen extends AppCompatActivity {
                 trigger.execute(player);
             }
         }
+        if (!player.isAlive()) {
+            Intent intent = new Intent(this, LostScreen.class);
+            startActivity(intent);
+        }
         executeStateTrigger();
         appendText(chosenOption.getText(), false);
         buttonRoutine();
 
         npc.setDialog(textView.getText());
     }
-
 }

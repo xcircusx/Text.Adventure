@@ -17,15 +17,16 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_corners_text"
+        android:outlineProvider="none"
         android:paddingStart="20px"
         android:paddingLeft="20px"
         android:paddingTop="20px"
         android:paddingEnd="20px"
         android:paddingRight="20px"
-        android:paddingBottom="20px"
 
-        android:outlineProvider="none"
-        android:text="TextView"
+        android:paddingBottom="20px"
+        android:text="Text Adventure"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/buttonStart"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +85,7 @@
         android:background="@drawable/rounded_corners_button"
         android:elegantTextHeight="false"
 
-        android:fontFamily="sans-serif"
+        android:fontFamily="sans-serif-black"
         android:onClick="goHomeScreen"
         android:text="STARTEN"
 
