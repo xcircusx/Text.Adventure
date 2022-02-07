@@ -267,7 +267,7 @@
           "0": {
             "text": "Was soll das denn!?",
             "conditions": [
-              "damage_player::50"
+              "damage_player::4"
             ],
             "trigger": [],
             "conditionsTrue": "1",
@@ -380,7 +380,7 @@
             "text": "Eichhörnchen!",
             "conditions": [],
             "trigger": [
-              "damage_player::50"
+              "damage_player::6"
             ],
             "conditionsTrue": "3",
             "conditionsFalse": ""
@@ -397,7 +397,7 @@
             "text": "Windmühle!",
             "conditions": [],
             "trigger": [
-              "damage_player::50"
+              "damage_player::6"
             ],
             "conditionsTrue": "3",
             "conditionsFalse": ""
@@ -463,8 +463,15 @@
             "text": "Wieso kannst du reden?",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
+            "conditionsTrue": "6",
+            "conditionsFalse": ""
+          },
+          "2": {
+            "text": "Wieso lebst du hier unten?",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "7",
+            "conditionsFalse": ""
           }
         }
       },
@@ -472,13 +479,215 @@
         "npc_text": "Zuerst musst du ein Rätsel lösen!",
         "trigger": [],
         "options": {
-          "0": {
+          "1": {
             "text": "Okay!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "2",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "2": {
+        "npc_text": "Der Frachter 'Kleine Prinzessin' liegt im Hamburger Hafen. Der Matrose Hein streicht das Schiff. Seine Strickleiter reicht bis 10 cm über das Wasser, die Sprossen sind je 25 cm voneinander entfernt. Hein steht auf der untersten Sprosse, als die Flut kommt. Der Wasserspiegel steigt um 65 cm.\n\r*die Katze leckt sich die Pfote und spricht weiter*\n\rWie viele Sprossen muss er höher steigen, damit er keien Nasen Füße bekommt?",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Zwei Sprossen!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "3",
+            "conditionsFalse": ""
+          },
+          "1": {
+            "text": "Drei Sprossen!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "3",
+            "conditionsFalse": ""
+          },
+          "3": {
+            "text": "Keine Sprosse!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "5",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "3": {
+        "npc_text": "Das ist leider falsch!\n\r*die Katze springt mit einem gewaltigen Satz auf dich zu und fähr im Sprung die Krallen aus*",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Was?!",
+            "conditions": [],
+            "trigger": [
+              "damage_player::10"
+            ],
+            "conditionsTrue": "4",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "4": {
+        "npc_text": "",
+        "trigger": [],
+        "options": {
+        }
+      },
+      "5": {
+        "npc_text": "Das ist richtig! Ein Schiff steigt ja mit. Du darfst nun durch die Tür treten.",
+        "trigger": [
+          "open_path::3"
+        ],
+        "options": {
+          "0": {
+            "text": "Vielen Dank.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "8",
+            "conditionsFalse": ""
+          },
+          "1": {
+            "text": "Ich habe noch Fragen an dich.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "9",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "6": {
+        "npc_text": "Du kannst doch auch reden! Kann also nicht so schwer sein!",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Mmh.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "0",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "7": {
+        "npc_text": "Ich bin eines Tages in einen dieser Gänge gestürzt und kam nicht mehr hinaus. Seitdem leben ich hier unten, fresse Ratten und gebe Leuten Rätsel zum lösen, damit diese durch die Türen gehen dürfen.",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Interessant.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "0",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "8": {
+        "npc_text": "Miau\n\r*die Katze geht von der Tür weg und fängt an sich zu putzen*",
+        "trigger": [],
+        "options": {}
+      },
+      "9": {
+        "npc_text": "Miau\n\r*die Katze sieht dich erwartungsvoll an*",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Was wäre passiert, wenn ich die Frage falsch beantwortet hätte?",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "10",
+            "conditionsFalse": ""
+          },
+          "2": {
+            "text": "Wieso kannst du reden?",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "6",
+            "conditionsFalse": ""
+          },
+          "3": {
+            "text": "Wieso lebst du hier unten?",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "7",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "10": {
+        "npc_text": "Du wärst meine nächste Mahlzeit geworden!",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Mmh.",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "9",
+            "conditionsFalse": ""
+          }
+        }
+      }
+    }
+  },
+  "Türrätsel": {
+    "states": {
+      "0": {
+        "npc_text": "Welchen Beinamen hatte Friedrich I.? Wähle bedacht! Es könnte sonst deine letzte Tat gewesen sein!",
+        "trigger": [],
+        "options": {
+          "0": {
+            "text": "Barbarossa!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "1",
+            "conditionsFalse": "2"
+          },
+          "1": {
+            "text": "der Große!",
+            "conditions": [],
+            "trigger": [],
+            "conditionsTrue": "informationen",
+            "conditionsFalse": "0"
+          },
+          "2": {
+            "text": "der Eroberer",
             "conditions": [],
             "trigger": [],
             "conditionsTrue": "informationen",
             "conditionsFalse": "0"
           }
+        }
+      },
+      "1": {
+        "npc_text": "KNARZ\n\r*die Tür öffnet sich langsam vor dir*",
+        "trigger": [
+          "open_path::1"
+        ],
+        "options": {}
+      },
+      "2": {
+        "npc_text": "KNACK\n\r*ein großer Stein fällt von der Decke auf dich*",
+        "trigger": [
+          "open_path::1"
+        ],
+        "options": {
+          "0": {
+            "text": "AAAHHH!",
+            "conditions": [],
+            "trigger": [
+              "damage_player::10"
+            ],
+            "conditionsTrue": "3",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "3": {
+        "npc_text": "",
+        "trigger": [],
+        "options": {
         }
       }
     }
@@ -486,47 +695,37 @@
   "Freundlicher Mann": {
     "states": {
       "0": {
-        "npc_text": "Wie kann ich Helfen?",
+        "npc_text": "Du hast dich also für diese Tür entschieden.",
         "trigger": [],
         "options": {
-          "0": {
-            "text": "Kannst du mir mit Leben helfen?",
-            "conditions": [
-              "hp_below::50"
-            ],
+          "1": {
+            "text": "Ja. War es die richtige Entscheidung?",
+            "conditions": [],
             "trigger": [],
             "conditionsTrue": "1",
-            "conditionsFalse": "2"
-          },
-          "1": {
-            "text": "Nein danke mit ist nicht mehr zu Helfen.",
-            "conditions": [],
-            "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
-          },
-          "2": {
-            "text": "Nach Informationen Fragen",
-            "conditions": [],
-            "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
+            "conditionsFalse": ""
           }
         }
       },
       "1": {
-        "npc_text": "Hier ist ein Apfel für dich!",
-        "trigger": [
-          "heal_player::50"
-        ],
+        "npc_text": "Leider nicht. Das ist aber nicht schlimm.\n\r*der Mann lächelt dich an*\n\rFreundlicher Mann: Irgendwann ist es für jeden Zeit zu gehen. Habe keine Angst.\n\r*der Mann kommt auf dich zu und legt dir ruhig seine Hand auf die Schulter. Du bemerkst eine seltsame Müdigkeit durch deinen Körper strömen*",
+        "trigger": [],
         "options": {
           "0": {
-            "text": "Danke!",
+            "text": "Was passiert mit ....",
             "conditions": [],
-            "trigger": [],
-            "conditionsTrue": "informationen",
+            "trigger": [
+              "damage_player::10"
+            ],
+            "conditionsTrue": "2",
             "conditionsFalse": "0"
           }
+        }
+      },
+      "2": {
+        "npc_text": "",
+        "trigger": [],
+        "options": {
         }
       }
     }
@@ -534,47 +733,37 @@
   "Freundliche Frau": {
     "states": {
       "0": {
-        "npc_text": "Wie kann ich Helfen?",
+        "npc_text": "Du hast dich also für diese Tür entschieden.",
         "trigger": [],
         "options": {
-          "0": {
-            "text": "Kannst du mir mit Leben helfen?",
-            "conditions": [
-              "hp_below::50"
-            ],
+          "1": {
+            "text": "Ja. War es die richtige Entscheidung?",
+            "conditions": [],
             "trigger": [],
             "conditionsTrue": "1",
-            "conditionsFalse": "2"
-          },
-          "1": {
-            "text": "Nein danke mit ist nicht mehr zu Helfen.",
-            "conditions": [],
-            "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
-          },
-          "2": {
-            "text": "Nach Informationen Fragen",
-            "conditions": [],
-            "trigger": [],
-            "conditionsTrue": "informationen",
-            "conditionsFalse": "0"
+            "conditionsFalse": ""
           }
         }
       },
       "1": {
-        "npc_text": "Hier ist ein Apfel für dich!",
-        "trigger": [
-          "heal_player::50"
-        ],
+        "npc_text": "Leider nicht. Das ist aber nicht schlimm.\n\r*die Frau lächelt dich an*\n\rFreundliche Frau: Irgendwann ist es für jeden Zeit zu gehen. Habe keine Angst.\n\r*die Frau kommt auf dich zu und legt dir ruhig ihre Hand auf die Schulter. Du bemerkst eine seltsame Müdigkeit durch deinen Körper strömen*",
+        "trigger": [],
         "options": {
           "0": {
-            "text": "Danke!",
+            "text": "Was passiert mit ....",
             "conditions": [],
-            "trigger": [],
-            "conditionsTrue": "informationen",
+            "trigger": [
+              "damage_player::10"
+            ],
+            "conditionsTrue": "2",
             "conditionsFalse": "0"
           }
+        }
+      },
+      "2": {
+        "npc_text": "",
+        "trigger": [],
+        "options": {
         }
       }
     }

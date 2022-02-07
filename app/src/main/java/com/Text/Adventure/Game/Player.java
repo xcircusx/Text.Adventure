@@ -18,7 +18,7 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
-        this.health = 49;
+        this.health = 10;
         this.alive = true;
     }
 

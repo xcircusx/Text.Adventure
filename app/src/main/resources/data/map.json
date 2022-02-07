@@ -26,7 +26,7 @@
   ],
   "rooms": {
     "10": {
-      "name": "Eingstürzter Raum",
+      "name": "Eingestürzter Raum",
       "description": "Du wachst mit schmerzendem Körper in einem dunklen Raum aus. Über dir ist ein Loch in der Decke, durch welches Sternenlicht auf dich scheint. \r\nVor dir ist ein Durchgang, durch den Licht auf dich fällt.",
       "conditions": [],
       "npc": []
@@ -50,13 +50,13 @@
       "npc": []
     },
     "14": {
-      "name": "Durchgang Kerker",
+      "name": "Vorderer Kerker",
       "description": "Du stehst im Kerkergang. Neben dir ist eine Zelle mit einem schmutzig aussehenden Insassen.",
       "conditions": [],
       "npc": []
     },
     "15": {
-      "name": "Durchgang Kerker",
+      "name": "Hinterer Kerker",
       "description": "Du stehst im Kerker. Um dich herum sind drei Kerkerzellen. In einer sitzt gemein aussehender Insasse. ",
       "conditions": [],
       "npc": []
@@ -161,7 +161,7 @@
       "name": "Ausgang der Galerie",
       "description": "Du gehst ans Ende der Galerie und probierst die Tür zu öffnen. Die Tür ist verschlossen. \n\rDu hörst hinter dir ein bekanntest Räuspern und bist nicht überrascht, als die seltsam aussehende Katze auf dich zukommt und sich demonstativ vor die Tür setzt.",
       "conditions": [],
-      "npc": ["Seltsame Katze"]
+      "npc": ["Türratsel"]
     },
     "33": {
       "name": "Gang",
