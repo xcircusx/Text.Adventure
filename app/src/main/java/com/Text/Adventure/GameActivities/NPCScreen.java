@@ -122,7 +122,6 @@ public class NPCScreen extends AppCompatActivity {
                 trigger.execute(player);
             }
         }
-        System.out.println(player.getHealth());
         if (!player.isAlive()) {
             Intent intent = new Intent(this, LostScreen.class);
             startActivity(intent);
@@ -151,11 +150,14 @@ public class NPCScreen extends AppCompatActivity {
                 trigger.execute(player);
             }
         }
+        if (!player.isAlive()) {
+            Intent intent = new Intent(this, LostScreen.class);
+            startActivity(intent);
+        }
         executeStateTrigger();
         appendText(chosenOption.getText(), false);
         buttonRoutine();
 
         npc.setDialog(textView.getText());
     }
-
 }
