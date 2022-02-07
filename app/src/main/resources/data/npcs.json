@@ -205,19 +205,6 @@
             "text": "Ciao!",
             "conditions": [],
             "trigger": [],
-            "conditionsTrue": "2",
-            "conditionsFalse": ""
-          }
-        }
-      },
-      "2": {
-        "npc_text": "Snerz! Was machen Sachen?",
-        "trigger": [],
-        "options": {
-          "0": {
-            "text": "Ciao!",
-            "conditions": [],
-            "trigger": [],
             "conditionsTrue": "3",
             "conditionsFalse": ""
           }
