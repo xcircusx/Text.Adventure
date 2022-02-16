@@ -123,7 +123,7 @@ public class NPCScreen extends AppCompatActivity {
             Intent intent = new Intent(this, LostScreen.class);
             startActivity(intent);
         }
-        if (!player.hasWon()) {
+        if (player.hasWon()) {
             Intent intent = new Intent(this, WinScreen.class);
             startActivity(intent);
         }
@@ -155,7 +155,7 @@ public class NPCScreen extends AppCompatActivity {
             Intent intent = new Intent(this, LostScreen.class);
             startActivity(intent);
         }
-        if (!player.hasWon()) {
+        if (player.hasWon()) {
             Intent intent = new Intent(this, WinScreen.class);
             startActivity(intent);
         }
