@@ -19,6 +19,7 @@ import com.Text.Adventure.Game.Player;
 import com.Text.Adventure.HomeActivities.HomeScreen;
 import com.Text.Adventure.HomeActivities.LostScreen;
 
+import com.Text.Adventure.HomeActivities.WinScreen;
 import com.Text.Adventure.R;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -122,6 +123,10 @@ public class NPCScreen extends AppCompatActivity {
             Intent intent = new Intent(this, LostScreen.class);
             startActivity(intent);
         }
+        if (!player.hasWon()) {
+            Intent intent = new Intent(this, WinScreen.class);
+            startActivity(intent);
+        }
     }
 
     private void chooseOption(int option, Player player) {
@@ -148,6 +153,10 @@ public class NPCScreen extends AppCompatActivity {
         }
         if (!player.isAlive()) {
             Intent intent = new Intent(this, LostScreen.class);
+            startActivity(intent);
+        }
+        if (!player.hasWon()) {
+            Intent intent = new Intent(this, WinScreen.class);
             startActivity(intent);
         }
         executeStateTrigger();

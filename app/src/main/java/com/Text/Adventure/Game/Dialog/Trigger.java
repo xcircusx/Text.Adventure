@@ -46,6 +46,7 @@ public class Trigger {
                 }
                 break;
             case "win_game":
+                player.win();
                 break;
         }
         this.executed = true;

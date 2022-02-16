@@ -14,12 +14,13 @@ public class Player {
     private String name;
     private int health;
 
-    private boolean alive;
+    private boolean alive, won;
 
     public Player(String name) {
         this.name = name;
         this.health = 10;
         this.alive = true;
+        this.won = false;
     }
 
     public void takeDamage(int amount) {
@@ -41,6 +42,14 @@ public class Player {
     public void die() {
         this.alive = false;
         this.health = 0;
+    }
+
+    public void win() {
+        this.won = true;
+    }
+
+    public boolean hasWon() {
+        return this.won;
     }
 
     public boolean isAlive() {
