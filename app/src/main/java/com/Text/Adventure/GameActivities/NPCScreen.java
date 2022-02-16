@@ -119,6 +119,7 @@ public class NPCScreen extends AppCompatActivity {
                 trigger.execute(player);
             }
         }
+
         if (!player.isAlive()) {
             Intent intent = new Intent(this, LostScreen.class);
             startActivity(intent);

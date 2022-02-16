@@ -654,5 +654,30 @@
         }
       }
     }
+  },
+  "Gott": {
+    "states": {
+      "0": {
+        "npc_text": "Du hast gewonnen mein Sohn.",
+        "trigger": [],
+        "options": {
+          "1": {
+            "text": "Danke",
+            "conditions": [],
+            "trigger": [
+              "win_game::1"
+            ],
+            "conditionsTrue": "1",
+            "conditionsFalse": ""
+          }
+        }
+      },
+      "1": {
+        "npc_text": "",
+        "trigger": [],
+        "options": {}
+      }
+    }
   }
+
 }

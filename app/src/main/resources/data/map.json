@@ -179,7 +179,7 @@
       "name": "Tür 1",
       "description": "Du durchschreitest die Tür und bist dir sicher, die richtige Entscheidung getroffen zu haben.",
       "conditions": [],
-      "npc": []
+      "npc": ["Gott"]
     },
     "36": {
       "name": "Tür 2",
