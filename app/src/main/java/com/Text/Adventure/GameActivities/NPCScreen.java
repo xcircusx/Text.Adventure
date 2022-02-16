@@ -1,11 +1,8 @@
 package com.Text.Adventure.GameActivities;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.opengl.Visibility;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -21,9 +18,8 @@ import com.Text.Adventure.Game.NPC;
 import com.Text.Adventure.Game.Player;
 import com.Text.Adventure.HomeActivities.HomeScreen;
 import com.Text.Adventure.HomeActivities.LostScreen;
-import com.Text.Adventure.HomeActivities.WinScreen;
-import com.Text.Adventure.R;
 
+import com.Text.Adventure.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 

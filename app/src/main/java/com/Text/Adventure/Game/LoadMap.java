@@ -21,11 +21,11 @@ public class LoadMap {
     public static void init() {
         map = FirebaseFunctions.map;
         mapJson = new JSONObject(map);
-        currentPosition = new int[]{mapJson.getJSONObject("anfang").getInt("x"), mapJson.getJSONObject("anfang").getInt("y")};
+        currentPosition = new int[]{mapJson.getJSONObject("start").getInt("x"), mapJson.getJSONObject("start").getInt("y")};
         loadedRooms = new HashMap<>();
     }
 
-    private static int[] currentPosition = new int[]{mapJson.getJSONObject("anfang").getInt("x"), mapJson.getJSONObject("anfang").getInt("y")};
+    private static int[] currentPosition = new int[]{mapJson.getJSONObject("start").getInt("x"), mapJson.getJSONObject("start").getInt("y")};
     private static HashMap<Integer, Room> loadedRooms = new HashMap<>();
 
     private static int getNumberInMapBinding(int x, int y) {

@@ -104,7 +104,7 @@ public class MainScreen extends AppCompatActivity {
     }
 
     private void setButtonNPCText() {
-        buttonNPC.setText("NPC");
+        buttonNPC.setText("");
         buttonNPC.setClickable(false);
         buttonNPC.setVisibility(View.INVISIBLE);
         if (!(LoadMap.getCurrentRoom().getNpcs().size() == 0)) {
